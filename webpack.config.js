@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+var WebpackErrorNotificationPlugin = require('webpack-error-notification');
 
 module.exports = {
     watch: true,
@@ -19,8 +20,8 @@ module.exports = {
         library: "[name]"
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
+        new WebpackErrorNotificationPlugin(/* strategy */ /* options */),
         new BrowserSyncPlugin({
             // browse to http://localhost:3000/ during development,
             // ./public directory is being served
@@ -51,6 +52,12 @@ module.exports = {
                 include: path.join(__dirname, 'src'),
                 loader: 'style!css!sass'
             }
+        ]
+    },
+    resolve: {
+        modulesDirectories: [
+            'node_modules',
+            'client/modules'
         ]
     }
 }
