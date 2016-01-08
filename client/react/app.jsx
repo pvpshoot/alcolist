@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Mui from 'material-ui';
+import RaisedButton from 'material-ui/lib/raised-button';
 import bindMethods from 'service';
 
 //console.log(React);
