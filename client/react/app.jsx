@@ -22,7 +22,7 @@ import bindMethods from 'service';
 //    }
 //}
 
-ReactDOM.render(<h1>lorem</h1>, document.body);
+ReactDOM.render(<RaisedButton label="Default" />, document.body);
 
 
 
