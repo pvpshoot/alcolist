@@ -11,7 +11,8 @@ module.exports = {
     },
     devtool: 'source-map',
     entry: {
-        app: './client/react/app.jsx'
+        app: './client/react/app.jsx',
+        test: './client/react/login.jsx'
 
     },
     output: {
