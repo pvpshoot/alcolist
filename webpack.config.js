@@ -10,15 +10,13 @@ module.exports = {
     },
     devtool: 'source-map',
     entry: {
-        main: [
-            './client/react/app.jsx',
-            './build/app.html'
-        ]
+        app: './client/react/app.jsx'
+
     },
     output: {
-        filename: '[name].js',
-        path: path.join(__dirname, 'public'),
-        publicPath: '/build/js'
+        path: __dirname,
+        filename: "build/js/[name].js",
+        library: "[name]"
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
@@ -27,20 +25,26 @@ module.exports = {
             // browse to http://localhost:3000/ during development,
             // ./public directory is being served
             host: 'localhost',
+            index: "app.htm",
             port: 8080,
-            server: { baseDir: ['build'] }
+            server: { baseDir: ['build']},
+            open: false,
+            ghostMode: false,
         })
     ],
     module: {
         loaders: [
             {
-                test: /\.html?$/,
-                loader: 'file-loader'
+                test: /\.jsx?$/,
+                exclude: /(node_modules)/,
+                loader: 'babel', // 'babel-loader' is also a legal name to reference
+                query: {
+                    presets: ['es2015']
+                }
             },
             {
-                test: /\.jsx?$/,
-                include: path.join(__dirname, 'src'),
-                loader: 'react-hot!babel'
+                test: /\.html?$/,
+                loader: 'file-loader'
             },
             {
                 test: /\.scss$/,
