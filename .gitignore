@@ -2,3 +2,4 @@
 node_modules/
 *.map
 *.hot-update.js
+.DS_Store
