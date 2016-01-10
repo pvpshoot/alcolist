@@ -18,6 +18,8 @@ class TableDrink extends React.Component {
         this.state = {
             fixedHeader: true,
             fixedFooter: true,
+            displaySelectAll: false,
+            displayRowCheckbox: false,
             height: '300px'
         }
     }
@@ -28,14 +30,14 @@ class TableDrink extends React.Component {
                 height={this.state.height}
                 fixedHeader={this.state.fixedHeader}
                 fixedFooter={this.state.fixedFooter}>
-                <TableHeader>
+                <TableHeader displaySelectAll={this.state.displaySelectAll}>
                     <TableRow>
                         <TableHeaderColumn colSpan="2" tooltip='Super Header' style={{textAlign: 'center'}}>
                             Super Header
                         </TableHeaderColumn>
                     </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody displayRowCheckbox={this.state.displayRowCheckbox}>
                     <TableRow>
                         <TableRowColumn>John Smith</TableRowColumn>
                     </TableRow>
