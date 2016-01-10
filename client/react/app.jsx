@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Mui from 'material-ui';
 import TableDrink from './TableDrink.jsx';
+import ListDrink from './ListDrink.jsx';
 import bindMethods from 'service';
 
 
@@ -15,7 +16,7 @@ class MyApp extends React.Component {
    componentDidMount() {}
    render() {
 
-       return <TableDrink/>;
+       return <ListDrink/>;
 
    }
 }
