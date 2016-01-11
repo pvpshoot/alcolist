@@ -7,6 +7,7 @@ import Colors from 'material-ui/lib/styles/colors';
 
 
 var {
+    Card,
     List,
     ListItem,
     Divider,
@@ -19,7 +20,7 @@ class ListDrink extends React.Component {
     }
     render() {
         return(
-                <div>
+                <Card>
                     <List subheader="BEER" insetSubheader={true} >
                         <ListItem
                             leftAvatar={<Avatar icon={<SocialPeople />} />}
@@ -50,7 +51,7 @@ class ListDrink extends React.Component {
                             primaryText="Kitchen remodel"
                             secondaryText="Jan 10, 2014" />
                     </List>
-                </div>
+                </Card>
 
 
         )
