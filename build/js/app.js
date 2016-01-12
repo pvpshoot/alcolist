@@ -47,6 +47,8 @@ var app =
 
 	'use strict';
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -55,33 +57,47 @@ var app =
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _raisedButton = __webpack_require__(333);
-	
-	var _raisedButton2 = _interopRequireDefault(_raisedButton);
-	
-	var _service = __webpack_require__(366);
+	var _service = __webpack_require__(159);
 	
 	var _service2 = _interopRequireDefault(_service);
 	
+	var _AddAlcoButton = __webpack_require__(160);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//console.log(React);
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	//class MyApp extends React.Component {
-	//    constructor(props) {
-	//        super(props);
-	//        this.state = {};
-	//        //bindMethods(this, ['']);
-	//    }
-	//    componentDidMount() {}
-	//    render() {
-	//
-	//        return <input/>;
-	//
-	//    }
-	//}
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	_reactDom2.default.render(_react2.default.createElement(_raisedButton2.default, { label: 'Default' }), document.body);
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var App = function (_React$Component) {
+	    _inherits(App, _React$Component);
+	
+	    function App(props) {
+	        _classCallCheck(this, App);
+	
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+	
+	        _this.state = {};
+	        //bindMethods(this, ['']);
+	        return _this;
+	    }
+	
+	    _createClass(App, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_AddAlcoButton.AddAlcoButton, null);
+	        }
+	    }]);
+	
+	    return App;
+	}(_react2.default.Component);
+	
+	_reactDom2.default.render(_react2.default.createElement(App, null), document.body);
 
 /***/ },
 /* 1 */
@@ -19679,9 +19695,391 @@ var app =
 
 
 /***/ },
-/* 159 */,
-/* 160 */,
+/* 159 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.bindMethods = bindMethods;
+	function bindMethods(component, names) {
+	    if (_.isString(names)) {
+	        names = [names];
+	    }
+	    names.forEach(function (name) {
+	        return component[name] = component[name].bind(component);
+	    });
+	}
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.AddAlcoButton = undefined;
+	
+	var _floatingActionButton = __webpack_require__(161);
+	
+	var _floatingActionButton2 = _interopRequireDefault(_floatingActionButton);
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _add = __webpack_require__(229);
+	
+	var _add2 = _interopRequireDefault(_add);
+	
+	var _colors = __webpack_require__(186);
+	
+	var _colors2 = _interopRequireDefault(_colors);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AddAlcoButton = exports.AddAlcoButton = function (_React$Component) {
+	    _inherits(AddAlcoButton, _React$Component);
+	
+	    function AddAlcoButton(props) {
+	        _classCallCheck(this, AddAlcoButton);
+	
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AddAlcoButton).call(this, props));
+	
+	        _this.state = {};
+	        //bindMethods(this, ['']);
+	        return _this;
+	    }
+	
+	    _createClass(AddAlcoButton, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            //TODO УБРАТЬ ИНДАЙН СТИЛИ
+	            return _react2.default.createElement(
+	                _floatingActionButton2.default,
+	                { backgroundColor: _colors2.default.teal500, className: 'AddAlcoButton', style: { position: 'fixed', bottom: '20px', right: '20px' } },
+	                _react2.default.createElement(_add2.default, null)
+	            );
+	        }
+	    }]);
+	
+	    return AddAlcoButton;
+	}(_react2.default.Component);
+
+/***/ },
 /* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(158);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
+	var _stylePropable = __webpack_require__(162);
+	
+	var _stylePropable2 = _interopRequireDefault(_stylePropable);
+	
+	var _transitions = __webpack_require__(180);
+	
+	var _transitions2 = _interopRequireDefault(_transitions);
+	
+	var _colorManipulator = __webpack_require__(181);
+	
+	var _colorManipulator2 = _interopRequireDefault(_colorManipulator);
+	
+	var _enhancedButton = __webpack_require__(182);
+	
+	var _enhancedButton2 = _interopRequireDefault(_enhancedButton);
+	
+	var _fontIcon = __webpack_require__(225);
+	
+	var _fontIcon2 = _interopRequireDefault(_fontIcon);
+	
+	var _paper = __webpack_require__(226);
+	
+	var _paper2 = _interopRequireDefault(_paper);
+	
+	var _children = __webpack_require__(187);
+	
+	var _children2 = _interopRequireDefault(_children);
+	
+	var _lightRawTheme = __webpack_require__(198);
+	
+	var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
+	
+	var _themeManager = __webpack_require__(201);
+	
+	var _themeManager2 = _interopRequireDefault(_themeManager);
+	
+	var _warning = __webpack_require__(228);
+	
+	var _warning2 = _interopRequireDefault(_warning);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	var FloatingActionButton = _react2.default.createClass({
+	  displayName: 'FloatingActionButton',
+	
+	  propTypes: {
+	    backgroundColor: _react2.default.PropTypes.string,
+	    children: _react2.default.PropTypes.node,
+	    disabled: _react2.default.PropTypes.bool,
+	    disabledColor: _react2.default.PropTypes.string,
+	    iconClassName: _react2.default.PropTypes.string,
+	    iconStyle: _react2.default.PropTypes.object,
+	    mini: _react2.default.PropTypes.bool,
+	    onMouseDown: _react2.default.PropTypes.func,
+	    onMouseEnter: _react2.default.PropTypes.func,
+	    onMouseLeave: _react2.default.PropTypes.func,
+	    onMouseUp: _react2.default.PropTypes.func,
+	    onTouchEnd: _react2.default.PropTypes.func,
+	    onTouchStart: _react2.default.PropTypes.func,
+	    secondary: _react2.default.PropTypes.bool,
+	
+	    /**
+	     * Override the inline-styles of the root element.
+	     */
+	    style: _react2.default.PropTypes.object
+	  },
+	
+	  contextTypes: {
+	    muiTheme: _react2.default.PropTypes.object
+	  },
+	
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: _react2.default.PropTypes.object
+	  },
+	
+	  mixins: [_stylePropable2.default],
+	
+	  getInitialState: function getInitialState() {
+	    var zDepth = this.props.disabled ? 0 : 2;
+	
+	    return {
+	      hovered: false,
+	      initialZDepth: zDepth,
+	      touch: false,
+	      zDepth: zDepth,
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
+	    };
+	  },
+	  getChildContext: function getChildContext() {
+	    return {
+	      muiTheme: this.state.muiTheme
+	    };
+	  },
+	  componentDidMount: function componentDidMount() {
+	    process.env.NODE_ENV !== "production" ? (0, _warning2.default)(!this.props.iconClassName || !this.props.children, 'You have set both an iconClassName and a child icon. ' + 'It is recommended you use only one method when adding ' + 'icons to FloatingActionButtons.') : undefined;
+	  },
+	  componentWillReceiveProps: function componentWillReceiveProps(newProps, nextContext) {
+	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+	    this.setState({ muiTheme: newMuiTheme });
+	
+	    if (newProps.disabled !== this.props.disabled) {
+	      var zDepth = newProps.disabled ? 0 : 2;
+	
+	      this.setState({
+	        zDepth: zDepth,
+	        initialZDepth: zDepth
+	      });
+	    }
+	  },
+	  _getBackgroundColor: function _getBackgroundColor() {
+	    return this.props.disabled ? this.props.disabledColor || this.getTheme().disabledColor : this.props.backgroundColor ? this.props.backgroundColor : this.props.secondary ? this.getTheme().secondaryColor : this.getTheme().color;
+	  },
+	  getTheme: function getTheme() {
+	    return this.state.muiTheme.floatingActionButton;
+	  },
+	  _getIconColor: function _getIconColor() {
+	    return this.props.disabled ? this.getTheme().disabledTextColor : this.props.secondary ? this.getTheme().secondaryIconColor : this.getTheme().iconColor;
+	  },
+	  getStyles: function getStyles() {
+	    var themeVariables = this.state.muiTheme.floatingActionButton;
+	
+	    var styles = {
+	      root: {
+	        transition: _transitions2.default.easeOut(),
+	        display: 'inline-block'
+	      },
+	      container: {
+	        transition: _transitions2.default.easeOut(),
+	        position: 'relative',
+	        height: themeVariables.buttonSize,
+	        width: themeVariables.buttonSize,
+	        padding: 0,
+	        overflow: 'hidden',
+	        backgroundColor: this._getBackgroundColor(),
+	        borderRadius: '50%',
+	        textAlign: 'center',
+	        verticalAlign: 'bottom',
+	        /*
+	         This is need so that ripples do not bleed
+	          past border radius.
+	          See: http://stackoverflow.com/questions/17298739/
+	            css-overflow-hidden-not-working-in-chrome-when-parent-has-border-radius-and-chil
+	         */
+	        transform: 'translate3d(0, 0, 0)'
+	      },
+	      containerWhenMini: {
+	        height: themeVariables.miniSize,
+	        width: themeVariables.miniSize
+	      },
+	      overlay: {
+	        transition: _transitions2.default.easeOut(),
+	        top: 0
+	      },
+	      overlayWhenHovered: {
+	        backgroundColor: _colorManipulator2.default.fade(this._getIconColor(), 0.4)
+	      },
+	      icon: {
+	        height: themeVariables.buttonSize,
+	        lineHeight: themeVariables.buttonSize + 'px',
+	        fill: themeVariables.iconColor,
+	        color: this._getIconColor()
+	      },
+	      iconWhenMini: {
+	        height: themeVariables.miniSize,
+	        lineHeight: themeVariables.miniSize + 'px'
+	      }
+	    };
+	    return styles;
+	  },
+	  _handleMouseDown: function _handleMouseDown(e) {
+	    //only listen to left clicks
+	    if (e.button === 0) {
+	      this.setState({ zDepth: this.state.initialZDepth + 1 });
+	    }
+	    if (this.props.onMouseDown) this.props.onMouseDown(e);
+	  },
+	  _handleMouseUp: function _handleMouseUp(e) {
+	    this.setState({ zDepth: this.state.initialZDepth });
+	    if (this.props.onMouseUp) this.props.onMouseUp(e);
+	  },
+	  _handleMouseLeave: function _handleMouseLeave(e) {
+	    if (!this.refs.container.isKeyboardFocused()) this.setState({ zDepth: this.state.initialZDepth, hovered: false });
+	    if (this.props.onMouseLeave) this.props.onMouseLeave(e);
+	  },
+	  _handleMouseEnter: function _handleMouseEnter(e) {
+	    if (!this.refs.container.isKeyboardFocused() && !this.state.touch) {
+	      this.setState({ hovered: true });
+	    }
+	    if (this.props.onMouseEnter) this.props.onMouseEnter(e);
+	  },
+	  _handleTouchStart: function _handleTouchStart(e) {
+	    this.setState({
+	      touch: true,
+	      zDepth: this.state.initialZDepth + 1
+	    });
+	    if (this.props.onTouchStart) this.props.onTouchStart(e);
+	  },
+	  _handleTouchEnd: function _handleTouchEnd(e) {
+	    this.setState({ zDepth: this.state.initialZDepth });
+	    if (this.props.onTouchEnd) this.props.onTouchEnd(e);
+	  },
+	  _handleKeyboardFocus: function _handleKeyboardFocus(e, keyboardFocused) {
+	    if (keyboardFocused && !this.props.disabled) {
+	      this.setState({ zDepth: this.state.initialZDepth + 1 });
+	      _reactDom2.default.findDOMNode(this.refs.overlay).style.backgroundColor = _colorManipulator2.default.fade(this.getStyles().icon.color, 0.4);
+	    } else if (!this.state.hovered) {
+	      this.setState({ zDepth: this.state.initialZDepth });
+	      _reactDom2.default.findDOMNode(this.refs.overlay).style.backgroundColor = 'transparent';
+	    }
+	  },
+	  render: function render() {
+	    var _props = this.props;
+	    var disabled = _props.disabled;
+	    var mini = _props.mini;
+	    var secondary = _props.secondary;
+	    var iconStyle = _props.iconStyle;
+	    var iconClassName = _props.iconClassName;
+	
+	    var other = _objectWithoutProperties(_props, ['disabled', 'mini', 'secondary', 'iconStyle', 'iconClassName']);
+	
+	    var styles = this.getStyles();
+	
+	    var iconElement = undefined;
+	    if (iconClassName) {
+	      iconElement = _react2.default.createElement(_fontIcon2.default, {
+	        className: iconClassName,
+	        style: this.mergeStyles(styles.icon, mini && styles.iconWhenMini, iconStyle)
+	      });
+	    }
+	
+	    var children = _children2.default.extend(this.props.children, {
+	      style: this.mergeStyles(styles.icon, mini && styles.iconWhenMini, iconStyle)
+	    });
+	
+	    var buttonEventHandlers = disabled ? null : {
+	      onMouseDown: this._handleMouseDown,
+	      onMouseUp: this._handleMouseUp,
+	      onMouseLeave: this._handleMouseLeave,
+	      onMouseEnter: this._handleMouseEnter,
+	      onTouchStart: this._handleTouchStart,
+	      onTouchEnd: this._handleTouchEnd,
+	      onKeyboardFocus: this._handleKeyboardFocus
+	    };
+	
+	    return _react2.default.createElement(
+	      _paper2.default,
+	      {
+	        style: this.mergeStyles(styles.root, this.props.style),
+	        zDepth: this.state.zDepth,
+	        circle: true },
+	      _react2.default.createElement(
+	        _enhancedButton2.default,
+	        _extends({}, other, buttonEventHandlers, {
+	          ref: 'container',
+	          disabled: disabled,
+	          style: this.mergeStyles(styles.container, this.props.mini && styles.containerWhenMini, iconStyle),
+	          focusRippleColor: styles.icon.color,
+	          touchRippleColor: styles.icon.color }),
+	        _react2.default.createElement(
+	          'div',
+	          {
+	            ref: 'overlay',
+	            style: this.prepareStyles(styles.overlay, this.state.hovered && !this.props.disabled && styles.overlayWhenHovered) },
+	          iconElement,
+	          children
+	        )
+	      )
+	    );
+	  }
+	});
+	
+	exports.default = FloatingActionButton;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19694,11 +20092,11 @@ var app =
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _immutabilityHelper = __webpack_require__(162);
+	var _immutabilityHelper = __webpack_require__(163);
 	
 	var _immutabilityHelper2 = _interopRequireDefault(_immutabilityHelper);
 	
-	var _styles = __webpack_require__(165);
+	var _styles = __webpack_require__(166);
 	
 	var _styles2 = _interopRequireDefault(_styles);
 	
@@ -19740,7 +20138,7 @@ var app =
 	};
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19749,7 +20147,7 @@ var app =
 	  value: true
 	});
 	
-	var _reactAddonsUpdate = __webpack_require__(163);
+	var _reactAddonsUpdate = __webpack_require__(164);
 	
 	var _reactAddonsUpdate2 = _interopRequireDefault(_reactAddonsUpdate);
 	
@@ -19788,13 +20186,13 @@ var app =
 	};
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(164);
+	module.exports = __webpack_require__(165);
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -19907,7 +20305,7 @@ var app =
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -19916,11 +20314,11 @@ var app =
 	  value: true
 	});
 	
-	var _autoPrefix = __webpack_require__(166);
+	var _autoPrefix = __webpack_require__(167);
 	
 	var _autoPrefix2 = _interopRequireDefault(_autoPrefix);
 	
-	var _immutabilityHelper = __webpack_require__(162);
+	var _immutabilityHelper = __webpack_require__(163);
 	
 	var _immutabilityHelper2 = _interopRequireDefault(_immutabilityHelper);
 	
@@ -20028,7 +20426,7 @@ var app =
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 166 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20037,7 +20435,7 @@ var app =
 	  value: true
 	});
 	
-	var _inlineStylePrefixer = __webpack_require__(167);
+	var _inlineStylePrefixer = __webpack_require__(168);
 	
 	var _inlineStylePrefixer2 = _interopRequireDefault(_inlineStylePrefixer);
 	
@@ -20107,7 +20505,7 @@ var app =
 	};
 
 /***/ },
-/* 167 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -20122,19 +20520,19 @@ var app =
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var _getBrowserInformation = __webpack_require__(168);
+	var _getBrowserInformation = __webpack_require__(169);
 	
 	var _getBrowserInformation2 = _interopRequireDefault(_getBrowserInformation);
 	
-	var _getPrefixedKeyframes = __webpack_require__(170);
+	var _getPrefixedKeyframes = __webpack_require__(171);
 	
 	var _getPrefixedKeyframes2 = _interopRequireDefault(_getPrefixedKeyframes);
 	
-	var _caniuseData = __webpack_require__(171);
+	var _caniuseData = __webpack_require__(172);
 	
 	var _caniuseData2 = _interopRequireDefault(_caniuseData);
 	
-	var _Plugins = __webpack_require__(172);
+	var _Plugins = __webpack_require__(173);
 	
 	var _Plugins2 = _interopRequireDefault(_Plugins);
 	
@@ -20307,7 +20705,7 @@ var app =
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20318,7 +20716,7 @@ var app =
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _bowser = __webpack_require__(169);
+	var _bowser = __webpack_require__(170);
 	
 	var _bowser2 = _interopRequireDefault(_bowser);
 	
@@ -20516,7 +20914,7 @@ var app =
 	module.exports = exports['default'];
 
 /***/ },
-/* 169 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -20813,7 +21211,7 @@ var app =
 
 
 /***/ },
-/* 170 */
+/* 171 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -20837,13 +21235,13 @@ var app =
 	module.exports = exports['default'];
 
 /***/ },
-/* 171 */
+/* 172 */
 /***/ function(module, exports) {
 
 	var caniuseData = {"chrome":{"transform":35,"transformOrigin":35,"transformOriginX":35,"transformOriginY":35,"backfaceVisibility":35,"perspective":35,"perspectiveOrigin":35,"transformStyle":35,"transformOriginZ":35,"animation":42,"animationDelay":42,"animationDirection":42,"animationFillMode":42,"animationDuration":42,"animationIterationCount":42,"animationName":42,"animationPlayState":42,"animationTimingFunction":42,"appearance":49,"userSelect":49,"fontKerning":32,"textEmphasisPosition":49,"textEmphasis":49,"textEmphasisStyle":49,"textEmphasisColor":49,"boxDecorationBreak":49,"clipPath":49,"maskImage":49,"maskMode":49,"maskRepeat":49,"maskPosition":49,"maskClip":49,"maskOrigin":49,"maskSize":49,"maskComposite":49,"mask":49,"maskBorderSource":49,"maskBorderMode":49,"maskBorderSlice":49,"maskBorderWidth":49,"maskBorderOutset":49,"maskBorderRepeat":49,"maskBorder":49,"maskType":49,"textDecorationStyle":49,"textDecorationSkip":49,"textDecorationLine":49,"textDecorationColor":49,"filter":49,"fontFeatureSettings":49,"breakAfter":49,"breakBefore":49,"breakInside":49,"columnCount":49,"columnFill":49,"columnGap":49,"columnRule":49,"columnRuleColor":49,"columnRuleStyle":49,"columnRuleWidth":49,"columns":49,"columnSpan":49,"columnWidth":49},"safari":{"flex":8,"flexBasis":8,"flexDirection":8,"flexGrow":8,"flexFlow":8,"flexShrink":8,"flexWrap":8,"alignContent":8,"alignItems":8,"alignSelf":8,"justifyContent":8,"order":8,"transition":6,"transitionDelay":6,"transitionDuration":6,"transitionProperty":6,"transitionTimingFunction":6,"transform":8,"transformOrigin":8,"transformOriginX":8,"transformOriginY":8,"backfaceVisibility":8,"perspective":8,"perspectiveOrigin":8,"transformStyle":8,"transformOriginZ":8,"animation":8,"animationDelay":8,"animationDirection":8,"animationFillMode":8,"animationDuration":8,"animationIterationCount":8,"animationName":8,"animationPlayState":8,"animationTimingFunction":8,"appearance":9,"userSelect":9,"backdropFilter":9,"fontKerning":9,"scrollSnapType":9,"scrollSnapPointsX":9,"scrollSnapPointsY":9,"scrollSnapDestination":9,"scrollSnapCoordinate":9,"textEmphasisPosition":7,"textEmphasis":7,"textEmphasisStyle":7,"textEmphasisColor":7,"boxDecorationBreak":9,"clipPath":9,"maskImage":9,"maskMode":9,"maskRepeat":9,"maskPosition":9,"maskClip":9,"maskOrigin":9,"maskSize":9,"maskComposite":9,"mask":9,"maskBorderSource":9,"maskBorderMode":9,"maskBorderSlice":9,"maskBorderWidth":9,"maskBorderOutset":9,"maskBorderRepeat":9,"maskBorder":9,"maskType":9,"textDecorationStyle":9,"textDecorationSkip":9,"textDecorationLine":9,"textDecorationColor":9,"shapeImageThreshold":9,"shapeImageMargin":9,"shapeImageOutside":9,"filter":9,"hyphens":9,"flowInto":9,"flowFrom":9,"breakBefore":8,"breakAfter":8,"breakInside":8,"regionFragment":9,"columnCount":8,"columnFill":8,"columnGap":8,"columnRule":8,"columnRuleColor":8,"columnRuleStyle":8,"columnRuleWidth":8,"columns":8,"columnSpan":8,"columnWidth":8},"firefox":{"appearance":45,"userSelect":45,"boxSizing":28,"textAlignLast":45,"textDecorationStyle":35,"textDecorationSkip":35,"textDecorationLine":35,"textDecorationColor":35,"tabSize":45,"hyphens":42,"fontFeatureSettings":33,"breakAfter":45,"breakBefore":45,"breakInside":45,"columnCount":45,"columnFill":45,"columnGap":45,"columnRule":45,"columnRuleColor":45,"columnRuleStyle":45,"columnRuleWidth":45,"columns":45,"columnSpan":45,"columnWidth":45},"opera":{"flex":16,"flexBasis":16,"flexDirection":16,"flexGrow":16,"flexFlow":16,"flexShrink":16,"flexWrap":16,"alignContent":16,"alignItems":16,"alignSelf":16,"justifyContent":16,"order":16,"transform":22,"transformOrigin":22,"transformOriginX":22,"transformOriginY":22,"backfaceVisibility":22,"perspective":22,"perspectiveOrigin":22,"transformStyle":22,"transformOriginZ":22,"animation":29,"animationDelay":29,"animationDirection":29,"animationFillMode":29,"animationDuration":29,"animationIterationCount":29,"animationName":29,"animationPlayState":29,"animationTimingFunction":29,"appearance":35,"userSelect":35,"fontKerning":19,"textEmphasisPosition":35,"textEmphasis":35,"textEmphasisStyle":35,"textEmphasisColor":35,"boxDecorationBreak":35,"clipPath":35,"maskImage":35,"maskMode":35,"maskRepeat":35,"maskPosition":35,"maskClip":35,"maskOrigin":35,"maskSize":35,"maskComposite":35,"mask":35,"maskBorderSource":35,"maskBorderMode":35,"maskBorderSlice":35,"maskBorderWidth":35,"maskBorderOutset":35,"maskBorderRepeat":35,"maskBorder":35,"maskType":35,"filter":35,"fontFeatureSettings":35,"breakAfter":35,"breakBefore":35,"breakInside":35,"columnCount":35,"columnFill":35,"columnGap":35,"columnRule":35,"columnRuleColor":35,"columnRuleStyle":35,"columnRuleWidth":35,"columns":35,"columnSpan":35,"columnWidth":35},"ie":{"gridTemplateRows":11,"grid":11,"flowInto":11,"flexDirection":10,"touchAction":10,"gridRow":11,"scrollSnapPointsX":11,"wrapMargin":11,"breakBefore":11,"gridRowEnd":11,"gridRowStart":11,"breakInside":11,"transformOrigin":9,"scrollSnapType":11,"scrollSnapDestination":11,"gridTemplate":11,"flexWrap":10,"transformOriginX":9,"flowFrom":11,"gridColumnStart":11,"userSelect":11,"wrapFlow":11,"scrollSnapCoordinate":11,"gridGap":11,"gridAutoRows":11,"hyphens":11,"regionFragment":11,"flex":10,"columnGap":11,"wrapThrough":11,"transformOriginY":9,"breakAfter":11,"rowGap":11,"gridTemplateColumns":11,"gridArea":11,"transform":9,"gridAutoFlow":11,"flexFlow":10,"gridTemplateAreas":11,"gridColumn":11,"gridAutoColumns":11,"scrollSnapPointsY":11,"textSizeAdjust":11},"ios_saf":{"flex":8.1,"flexBasis":8.1,"flexDirection":8.1,"flexGrow":8.1,"flexFlow":8.1,"flexShrink":8.1,"flexWrap":8.1,"alignContent":8.1,"alignItems":8.1,"alignSelf":8.1,"justifyContent":8.1,"order":8.1,"transition":6,"transitionDelay":6,"transitionDuration":6,"transitionProperty":6,"transitionTimingFunction":6,"transform":8.1,"transformOrigin":8.1,"transformOriginX":8.1,"transformOriginY":8.1,"backfaceVisibility":8.1,"perspective":8.1,"perspectiveOrigin":8.1,"transformStyle":8.1,"transformOriginZ":8.1,"animation":8.1,"animationDelay":8.1,"animationDirection":8.1,"animationFillMode":8.1,"animationDuration":8.1,"animationIterationCount":8.1,"animationName":8.1,"animationPlayState":8.1,"animationTimingFunction":8.1,"appearance":9,"userSelect":9,"backdropFilter":9,"fontKerning":9,"scrollSnapType":9,"scrollSnapPointsX":9,"scrollSnapPointsY":9,"scrollSnapDestination":9,"scrollSnapCoordinate":9,"boxDecorationBreak":9,"clipPath":9,"maskImage":9,"maskMode":9,"maskRepeat":9,"maskPosition":9,"maskClip":9,"maskOrigin":9,"maskSize":9,"maskComposite":9,"mask":9,"maskBorderSource":9,"maskBorderMode":9,"maskBorderSlice":9,"maskBorderWidth":9,"maskBorderOutset":9,"maskBorderRepeat":9,"maskBorder":9,"maskType":9,"textSizeAdjust":9,"textDecorationStyle":9,"textDecorationSkip":9,"textDecorationLine":9,"textDecorationColor":9,"shapeImageThreshold":9,"shapeImageMargin":9,"shapeImageOutside":9,"filter":9,"hyphens":9,"flowInto":9,"flowFrom":9,"breakBefore":8.1,"breakAfter":8.1,"breakInside":8.1,"regionFragment":9,"columnCount":8.1,"columnFill":8.1,"columnGap":8.1,"columnRule":8.1,"columnRuleColor":8.1,"columnRuleStyle":8.1,"columnRuleWidth":8.1,"columns":8.1,"columnSpan":8.1,"columnWidth":8.1},"android":{"borderImage":4.2,"borderImageOutset":4.2,"borderImageRepeat":4.2,"borderImageSlice":4.2,"borderImageSource":4.2,"borderImageWidth":4.2,"flex":4.2,"flexBasis":4.2,"flexDirection":4.2,"flexGrow":4.2,"flexFlow":4.2,"flexShrink":4.2,"flexWrap":4.2,"alignContent":4.2,"alignItems":4.2,"alignSelf":4.2,"justifyContent":4.2,"order":4.2,"transition":4.2,"transitionDelay":4.2,"transitionDuration":4.2,"transitionProperty":4.2,"transitionTimingFunction":4.2,"transform":4.4,"transformOrigin":4.4,"transformOriginX":4.4,"transformOriginY":4.4,"backfaceVisibility":4.4,"perspective":4.4,"perspectiveOrigin":4.4,"transformStyle":4.4,"transformOriginZ":4.4,"animation":4.4,"animationDelay":4.4,"animationDirection":4.4,"animationFillMode":4.4,"animationDuration":4.4,"animationIterationCount":4.4,"animationName":4.4,"animationPlayState":4.4,"animationTimingFunction":4.4,"appearance":44,"userSelect":44,"fontKerning":4.4,"textEmphasisPosition":44,"textEmphasis":44,"textEmphasisStyle":44,"textEmphasisColor":44,"boxDecorationBreak":44,"clipPath":44,"maskImage":44,"maskMode":44,"maskRepeat":44,"maskPosition":44,"maskClip":44,"maskOrigin":44,"maskSize":44,"maskComposite":44,"mask":44,"maskBorderSource":44,"maskBorderMode":44,"maskBorderSlice":44,"maskBorderWidth":44,"maskBorderOutset":44,"maskBorderRepeat":44,"maskBorder":44,"maskType":44,"filter":44,"fontFeatureSettings":44,"breakAfter":44,"breakBefore":44,"breakInside":44,"columnCount":44,"columnFill":44,"columnGap":44,"columnRule":44,"columnRuleColor":44,"columnRuleStyle":44,"columnRuleWidth":44,"columns":44,"columnSpan":44,"columnWidth":44},"and_chr":{"appearance":46,"userSelect":46,"textEmphasisPosition":46,"textEmphasis":46,"textEmphasisStyle":46,"textEmphasisColor":46,"boxDecorationBreak":46,"clipPath":46,"maskImage":46,"maskMode":46,"maskRepeat":46,"maskPosition":46,"maskClip":46,"maskOrigin":46,"maskSize":46,"maskComposite":46,"mask":46,"maskBorderSource":46,"maskBorderMode":46,"maskBorderSlice":46,"maskBorderWidth":46,"maskBorderOutset":46,"maskBorderRepeat":46,"maskBorder":46,"maskType":46,"textDecorationStyle":46,"textDecorationSkip":46,"textDecorationLine":46,"textDecorationColor":46,"filter":46,"fontFeatureSettings":46,"breakAfter":46,"breakBefore":46,"breakInside":46,"columnCount":46,"columnFill":46,"columnGap":46,"columnRule":46,"columnRuleColor":46,"columnRuleStyle":46,"columnRuleWidth":46,"columns":46,"columnSpan":46,"columnWidth":46},"and_uc":{"flex":9.9,"flexBasis":9.9,"flexDirection":9.9,"flexGrow":9.9,"flexFlow":9.9,"flexShrink":9.9,"flexWrap":9.9,"alignContent":9.9,"alignItems":9.9,"alignSelf":9.9,"justifyContent":9.9,"order":9.9,"transition":9.9,"transitionDelay":9.9,"transitionDuration":9.9,"transitionProperty":9.9,"transitionTimingFunction":9.9,"transform":9.9,"transformOrigin":9.9,"transformOriginX":9.9,"transformOriginY":9.9,"backfaceVisibility":9.9,"perspective":9.9,"perspectiveOrigin":9.9,"transformStyle":9.9,"transformOriginZ":9.9,"animation":9.9,"animationDelay":9.9,"animationDirection":9.9,"animationFillMode":9.9,"animationDuration":9.9,"animationIterationCount":9.9,"animationName":9.9,"animationPlayState":9.9,"animationTimingFunction":9.9,"appearance":9.9,"userSelect":9.9,"fontKerning":9.9,"textEmphasisPosition":9.9,"textEmphasis":9.9,"textEmphasisStyle":9.9,"textEmphasisColor":9.9,"maskImage":9.9,"maskMode":9.9,"maskRepeat":9.9,"maskPosition":9.9,"maskClip":9.9,"maskOrigin":9.9,"maskSize":9.9,"maskComposite":9.9,"mask":9.9,"maskBorderSource":9.9,"maskBorderMode":9.9,"maskBorderSlice":9.9,"maskBorderWidth":9.9,"maskBorderOutset":9.9,"maskBorderRepeat":9.9,"maskBorder":9.9,"maskType":9.9,"textSizeAdjust":9.9,"filter":9.9,"hyphens":9.9,"flowInto":9.9,"flowFrom":9.9,"breakBefore":9.9,"breakAfter":9.9,"breakInside":9.9,"regionFragment":9.9,"fontFeatureSettings":9.9,"columnCount":9.9,"columnFill":9.9,"columnGap":9.9,"columnRule":9.9,"columnRuleColor":9.9,"columnRuleStyle":9.9,"columnRuleWidth":9.9,"columns":9.9,"columnSpan":9.9,"columnWidth":9.9},"op_mini":{"borderImage":5,"borderImageOutset":5,"borderImageRepeat":5,"borderImageSlice":5,"borderImageSource":5,"borderImageWidth":5,"tabSize":5,"objectFit":5,"objectPosition":5}}; module.exports = caniuseData
 
 /***/ },
-/* 172 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20854,29 +21252,29 @@ var app =
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 	
-	var _pluginsCursor = __webpack_require__(173);
+	var _pluginsCursor = __webpack_require__(174);
 	
 	var _pluginsCursor2 = _interopRequireDefault(_pluginsCursor);
 	
-	var _pluginsFlex = __webpack_require__(174);
+	var _pluginsFlex = __webpack_require__(175);
 	
 	var _pluginsFlex2 = _interopRequireDefault(_pluginsFlex);
 	
-	var _pluginsSizing = __webpack_require__(175);
+	var _pluginsSizing = __webpack_require__(176);
 	
 	var _pluginsSizing2 = _interopRequireDefault(_pluginsSizing);
 	
-	var _pluginsGradient = __webpack_require__(176);
+	var _pluginsGradient = __webpack_require__(177);
 	
 	var _pluginsGradient2 = _interopRequireDefault(_pluginsGradient);
 	
 	// special flexbox specifications
 	
-	var _pluginsFlexboxIE = __webpack_require__(177);
+	var _pluginsFlexboxIE = __webpack_require__(178);
 	
 	var _pluginsFlexboxIE2 = _interopRequireDefault(_pluginsFlexboxIE);
 	
-	var _pluginsFlexboxOld = __webpack_require__(178);
+	var _pluginsFlexboxOld = __webpack_require__(179);
 	
 	var _pluginsFlexboxOld2 = _interopRequireDefault(_pluginsFlexboxOld);
 	
@@ -20884,7 +21282,7 @@ var app =
 	module.exports = exports['default'];
 
 /***/ },
-/* 173 */
+/* 174 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -20910,7 +21308,7 @@ var app =
 	module.exports = exports['default'];
 
 /***/ },
-/* 174 */
+/* 175 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -20936,7 +21334,7 @@ var app =
 	module.exports = exports['default'];
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -20965,7 +21363,7 @@ var app =
 	module.exports = exports['default'];
 
 /***/ },
-/* 176 */
+/* 177 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -20992,7 +21390,7 @@ var app =
 	module.exports = exports['default'];
 
 /***/ },
-/* 177 */
+/* 178 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -21038,7 +21436,7 @@ var app =
 	module.exports = exports['default'];
 
 /***/ },
-/* 178 */
+/* 179 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -21090,47 +21488,653 @@ var app =
 	module.exports = exports['default'];
 
 /***/ },
-/* 179 */
-/***/ function(module, exports, __webpack_require__) {
+/* 180 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.default = {
 	
-	var _colors = __webpack_require__(180);
+	  easeOutFunction: 'cubic-bezier(0.23, 1, 0.32, 1)',
+	  easeInOutFunction: 'cubic-bezier(0.445, 0.05, 0.55, 0.95)',
+	
+	  easeOut: function easeOut(duration, property, delay, easeFunction) {
+	
+	    easeFunction = easeFunction || this.easeOutFunction;
+	
+	    if (property && Object.prototype.toString.call(property) === '[object Array]') {
+	
+	      var transitions = '';
+	      for (var i = 0; i < property.length; i++) {
+	        if (transitions) transitions += ',';
+	        transitions += this.create(duration, property[i], delay, easeFunction);
+	      }
+	      return transitions;
+	    } else {
+	      return this.create(duration, property, delay, easeFunction);
+	    }
+	  },
+	  create: function create(duration, property, delay, easeFunction) {
+	    duration = duration || '450ms';
+	    property = property || 'all';
+	    delay = delay || '0ms';
+	    easeFunction = easeFunction || 'linear';
+	
+	    return property + ' ' + duration + ' ' + easeFunction + ' ' + delay;
+	  }
+	};
+
+/***/ },
+/* 181 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	
+	  /**
+	   * The relative brightness of any point in a colorspace, normalized to 0 for
+	   * darkest black and 1 for lightest white. RGB colors only. Does not take
+	   * into account alpha values.
+	   *
+	   * TODO:
+	   * - Take into account alpha values.
+	   * - Identify why there are minor discrepancies for some use cases
+	   *   (i.e. #F0F & #FFF). Note that these cases rarely occur.
+	   *
+	   * Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
+	   */
+	
+	  _luminance: function _luminance(color) {
+	    color = this._decomposeColor(color);
+	
+	    if (color.type.indexOf('rgb') > -1) {
+	      var rgb = color.values.map(function (val) {
+	        val /= 255; // normalized
+	        return val <= 0.03928 ? val / 12.92 : Math.pow((val + 0.055) / 1.055, 2.4);
+	      });
+	
+	      return 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
+	    } else {
+	      var message = 'Calculating the relative luminance is not available for ' + 'HSL and HSLA.';
+	      console.error(message);
+	      return -1;
+	    }
+	  },
+	
+	  /**
+	   * @params:
+	   * additionalValue = An extra value that has been calculated but not included
+	   *                   with the original color object, such as an alpha value.
+	   */
+	  _convertColorToString: function _convertColorToString(color, additonalValue) {
+	    var str = color.type + '(' + parseInt(color.values[0]) + ',' + parseInt(color.values[1]) + ',' + parseInt(color.values[2]);
+	
+	    if (additonalValue !== undefined) {
+	      str += ',' + additonalValue + ')';
+	    } else if (color.values.length === 4) {
+	      str += ',' + color.values[3] + ')';
+	    } else {
+	      str += ')';
+	    }
+	
+	    return str;
+	  },
+	
+	  // Converts a color from hex format to rgb format.
+	  _convertHexToRGB: function _convertHexToRGB(color) {
+	    if (color.length === 4) {
+	      var extendedColor = '#';
+	      for (var i = 1; i < color.length; i++) {
+	        extendedColor += color.charAt(i) + color.charAt(i);
+	      }
+	      color = extendedColor;
+	    }
+	
+	    var values = {
+	      r: parseInt(color.substr(1, 2), 16),
+	      g: parseInt(color.substr(3, 2), 16),
+	      b: parseInt(color.substr(5, 2), 16)
+	    };
+	
+	    return 'rgb(' + values.r + ',' + values.g + ',' + values.b + ')';
+	  },
+	
+	  // Returns the type and values of a color of any given type.
+	  _decomposeColor: function _decomposeColor(color) {
+	    if (color.charAt(0) === '#') {
+	      return this._decomposeColor(this._convertHexToRGB(color));
+	    }
+	
+	    var marker = color.indexOf('(');
+	    var type = color.substring(0, marker);
+	    var values = color.substring(marker + 1, color.length - 1).split(',');
+	
+	    return { type: type, values: values };
+	  },
+	
+	  // Set the absolute transparency of a color.
+	  // Any existing alpha values are overwritten.
+	  fade: function fade(color, amount) {
+	    color = this._decomposeColor(color);
+	    if (color.type === 'rgb' || color.type === 'hsl') color.type += 'a';
+	    return this._convertColorToString(color, amount);
+	  },
+	
+	  // Desaturates rgb and sets opacity to 0.15
+	  lighten: function lighten(color, amount) {
+	    color = this._decomposeColor(color);
+	
+	    if (color.type.indexOf('hsl') > -1) {
+	      color.values[2] += amount;
+	      return this._decomposeColor(this._convertColorToString(color));
+	    } else if (color.type.indexOf('rgb') > -1) {
+	      for (var i = 0; i < 3; i++) {
+	        color.values[i] *= 1 + amount;
+	        if (color.values[i] > 255) color.values[i] = 255;
+	      }
+	    }
+	
+	    if (color.type.indexOf('a') <= -1) color.type += 'a';
+	
+	    return this._convertColorToString(color, '0.15');
+	  },
+	  darken: function darken(color, amount) {
+	    color = this._decomposeColor(color);
+	
+	    if (color.type.indexOf('hsl') > -1) {
+	      color.values[2] += amount;
+	      return this._decomposeColor(this._convertColorToString(color));
+	    } else if (color.type.indexOf('rgb') > -1) {
+	      for (var i = 0; i < 3; i++) {
+	        color.values[i] *= 1 - amount;
+	        if (color.values[i] < 0) color.values[i] = 0;
+	      }
+	    }
+	
+	    return this._convertColorToString(color);
+	  },
+	
+	  // Calculates the contrast ratio between two colors.
+	  //
+	  // Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
+	  contrastRatio: function contrastRatio(background, foreground) {
+	    var lumA = this._luminance(background);
+	    var lumB = this._luminance(foreground);
+	
+	    if (lumA >= lumB) {
+	      return ((lumA + 0.05) / (lumB + 0.05)).toFixed(2);
+	    } else {
+	      return ((lumB + 0.05) / (lumA + 0.05)).toFixed(2);
+	    }
+	  },
+	
+	  /**
+	   * Determines how readable a color combination is based on its level.
+	   * Levels are defined from @LeaVerou:
+	   * https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/contrast-ratio.js
+	   */
+	  contrastRatioLevel: function contrastRatioLevel(background, foreground) {
+	    var levels = {
+	      'fail': {
+	        range: [0, 3],
+	        color: 'hsl(0, 100%, 40%)'
+	      },
+	      'aa-large': {
+	        range: [3, 4.5],
+	        color: 'hsl(40, 100%, 45%)'
+	      },
+	      'aa': {
+	        range: [4.5, 7],
+	        color: 'hsl(80, 60%, 45%)'
+	      },
+	      'aaa': {
+	        range: [7, 22],
+	        color: 'hsl(95, 60%, 41%)'
+	      }
+	    };
+	
+	    var ratio = this.contrastRatio(background, foreground);
+	
+	    for (var level in levels) {
+	      var range = levels[level].range;
+	      if (ratio >= range[0] && ratio <= range[1]) return level;
+	    }
+	  }
+	};
+
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactAddonsPureRenderMixin = __webpack_require__(183);
+	
+	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
+	
+	var _stylePropable = __webpack_require__(162);
+	
+	var _stylePropable2 = _interopRequireDefault(_stylePropable);
+	
+	var _colors = __webpack_require__(186);
 	
 	var _colors2 = _interopRequireDefault(_colors);
 	
+	var _children = __webpack_require__(187);
+	
+	var _children2 = _interopRequireDefault(_children);
+	
+	var _events = __webpack_require__(190);
+	
+	var _events2 = _interopRequireDefault(_events);
+	
+	var _keyCode = __webpack_require__(191);
+	
+	var _keyCode2 = _interopRequireDefault(_keyCode);
+	
+	var _focusRipple = __webpack_require__(192);
+	
+	var _focusRipple2 = _interopRequireDefault(_focusRipple);
+	
+	var _touchRipple = __webpack_require__(222);
+	
+	var _touchRipple2 = _interopRequireDefault(_touchRipple);
+	
+	var _lightRawTheme = __webpack_require__(198);
+	
+	var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
+	
+	var _themeManager = __webpack_require__(201);
+	
+	var _themeManager2 = _interopRequireDefault(_themeManager);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 	
-	var Typography = function Typography() {
-	  _classCallCheck(this, Typography);
+	var styleInjected = false;
+	var listening = false;
+	var tabPressed = false;
 	
-	  // text colors
-	  this.textFullBlack = _colors2.default.fullBlack;
-	  this.textDarkBlack = _colors2.default.darkBlack;
-	  this.textLightBlack = _colors2.default.lightBlack;
-	  this.textMinBlack = _colors2.default.minBlack;
-	  this.textFullWhite = _colors2.default.fullWhite;
-	  this.textDarkWhite = _colors2.default.darkWhite;
-	  this.textLightWhite = _colors2.default.lightWhite;
+	function injectStyle() {
+	  if (!styleInjected) {
+	    // Remove inner padding and border in Firefox 4+.
+	    var style = document.createElement('style');
+	    style.innerHTML = '\n      button::-moz-focus-inner,\n      input::-moz-focus-inner {\n        border: 0;\n        padding: 0;\n      }\n    ';
 	
-	  // font weight
-	  this.fontWeightLight = 300;
-	  this.fontWeightNormal = 400;
-	  this.fontWeightMedium = 500;
+	    document.body.appendChild(style);
+	    styleInjected = true;
+	  }
+	}
 	
-	  this.fontStyleButtonFontSize = 14;
-	};
+	function listenForTabPresses() {
+	  if (!listening) {
+	    _events2.default.on(window, 'keydown', function (e) {
+	      tabPressed = e.keyCode === _keyCode2.default.TAB;
+	    });
+	    listening = true;
+	  }
+	}
 	
-	exports.default = new Typography();
+	var EnhancedButton = _react2.default.createClass({
+	  displayName: 'EnhancedButton',
+	
+	  propTypes: {
+	    centerRipple: _react2.default.PropTypes.bool,
+	    children: _react2.default.PropTypes.node,
+	    containerElement: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.element]),
+	    disableFocusRipple: _react2.default.PropTypes.bool,
+	    disableKeyboardFocus: _react2.default.PropTypes.bool,
+	    disableTouchRipple: _react2.default.PropTypes.bool,
+	    disabled: _react2.default.PropTypes.bool,
+	    focusRippleColor: _react2.default.PropTypes.string,
+	    focusRippleOpacity: _react2.default.PropTypes.number,
+	    keyboardFocused: _react2.default.PropTypes.bool,
+	    linkButton: _react2.default.PropTypes.bool,
+	    onBlur: _react2.default.PropTypes.func,
+	    onFocus: _react2.default.PropTypes.func,
+	    onKeyDown: _react2.default.PropTypes.func,
+	    onKeyUp: _react2.default.PropTypes.func,
+	    onKeyboardFocus: _react2.default.PropTypes.func,
+	    onTouchTap: _react2.default.PropTypes.func,
+	
+	    /**
+	     * Override the inline-styles of the root element.
+	     */
+	    style: _react2.default.PropTypes.object,
+	    tabIndex: _react2.default.PropTypes.number,
+	    touchRippleColor: _react2.default.PropTypes.string,
+	    touchRippleOpacity: _react2.default.PropTypes.number,
+	    type: _react2.default.PropTypes.string
+	  },
+	
+	  contextTypes: {
+	    muiTheme: _react2.default.PropTypes.object
+	  },
+	
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: _react2.default.PropTypes.object
+	  },
+	
+	  mixins: [_reactAddonsPureRenderMixin2.default, _stylePropable2.default],
+	
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      containerElement: 'button',
+	      onBlur: function onBlur() {},
+	      onFocus: function onFocus() {},
+	      onKeyboardFocus: function onKeyboardFocus() {},
+	      onKeyDown: function onKeyDown() {},
+	      onKeyUp: function onKeyUp() {},
+	      onTouchTap: function onTouchTap() {},
+	      tabIndex: 0,
+	      type: 'button'
+	    };
+	  },
+	  getInitialState: function getInitialState() {
+	    return {
+	      isKeyboardFocused: !this.props.disabled && this.props.keyboardFocused && !this.props.disableKeyboardFocus,
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
+	    };
+	  },
+	  getChildContext: function getChildContext() {
+	    return {
+	      muiTheme: this.state.muiTheme
+	    };
+	  },
+	  componentDidMount: function componentDidMount() {
+	    injectStyle();
+	    listenForTabPresses();
+	  },
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
+	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+	    this.setState({ muiTheme: newMuiTheme });
+	
+	    if ((nextProps.disabled || nextProps.disableKeyboardFocus) && this.state.isKeyboardFocused) {
+	      this.setState({ isKeyboardFocused: false });
+	      if (nextProps.onKeyboardFocus) {
+	        nextProps.onKeyboardFocus(null, false);
+	      }
+	    }
+	  },
+	  isKeyboardFocused: function isKeyboardFocused() {
+	    return this.state.isKeyboardFocused;
+	  },
+	  removeKeyboardFocus: function removeKeyboardFocus(e) {
+	    if (this.state.isKeyboardFocused) {
+	      this.setState({ isKeyboardFocused: false });
+	      this.props.onKeyboardFocus(e, false);
+	    }
+	  },
+	  setKeyboardFocus: function setKeyboardFocus(e) {
+	    if (!this.state.isKeyboardFocused) {
+	      this.setState({ isKeyboardFocused: true });
+	      this.props.onKeyboardFocus(e, true);
+	    }
+	  },
+	  _cancelFocusTimeout: function _cancelFocusTimeout() {
+	    if (this._focusTimeout) {
+	      clearTimeout(this._focusTimeout);
+	      this._focusTimeout = null;
+	    }
+	  },
+	  _createButtonChildren: function _createButtonChildren() {
+	    var _props = this.props;
+	    var centerRipple = _props.centerRipple;
+	    var children = _props.children;
+	    var disabled = _props.disabled;
+	    var disableFocusRipple = _props.disableFocusRipple;
+	    var disableKeyboardFocus = _props.disableKeyboardFocus;
+	    var disableTouchRipple = _props.disableTouchRipple;
+	    var focusRippleColor = _props.focusRippleColor;
+	    var focusRippleOpacity = _props.focusRippleOpacity;
+	    var touchRippleColor = _props.touchRippleColor;
+	    var touchRippleOpacity = _props.touchRippleOpacity;
+	    var isKeyboardFocused = this.state.isKeyboardFocused;
+	
+	    //Focus Ripple
+	
+	    var focusRipple = isKeyboardFocused && !disabled && !disableFocusRipple && !disableKeyboardFocus ? _react2.default.createElement(_focusRipple2.default, {
+	      color: focusRippleColor,
+	      opacity: focusRippleOpacity,
+	      show: isKeyboardFocused
+	    }) : undefined;
+	
+	    //Touch Ripple
+	    var touchRipple = !disabled && !disableTouchRipple ? _react2.default.createElement(
+	      _touchRipple2.default,
+	      {
+	        centerRipple: centerRipple,
+	        color: touchRippleColor,
+	        opacity: touchRippleOpacity },
+	      children
+	    ) : undefined;
+	
+	    return _children2.default.create({
+	      focusRipple: focusRipple,
+	      touchRipple: touchRipple,
+	      children: touchRipple ? undefined : children
+	    });
+	  },
+	  _handleKeyDown: function _handleKeyDown(e) {
+	    if (!this.props.disabled && !this.props.disableKeyboardFocus) {
+	      if (e.keyCode === _keyCode2.default.ENTER && this.state.isKeyboardFocused) {
+	        this._handleTouchTap(e);
+	      }
+	    }
+	    this.props.onKeyDown(e);
+	  },
+	  _handleKeyUp: function _handleKeyUp(e) {
+	    if (!this.props.disabled && e.keyCode === _keyCode2.default.SPACE && this.state.isKeyboardFocused) {
+	      this._handleTouchTap(e);
+	    }
+	    this.props.onKeyUp(e);
+	  },
+	  _handleBlur: function _handleBlur(e) {
+	    this._cancelFocusTimeout();
+	    this.removeKeyboardFocus(e);
+	    this.props.onBlur(e);
+	  },
+	  _handleFocus: function _handleFocus(e) {
+	    var _this = this;
+	
+	    if (!this.props.disabled && !this.props.disableKeyboardFocus) {
+	      //setTimeout is needed because the focus event fires first
+	      //Wait so that we can capture if this was a keyboard focus
+	      //or touch focus
+	      this._focusTimeout = setTimeout(function () {
+	        if (tabPressed) {
+	          _this.setKeyboardFocus(e);
+	        }
+	      }, 150);
+	
+	      this.props.onFocus(e);
+	    }
+	  },
+	  _handleTouchTap: function _handleTouchTap(e) {
+	    this._cancelFocusTimeout();
+	    if (!this.props.disabled) {
+	      tabPressed = false;
+	      this.removeKeyboardFocus(e);
+	      this.props.onTouchTap(e);
+	    }
+	  },
+	  render: function render() {
+	    var _props2 = this.props;
+	    var centerRipple = _props2.centerRipple;
+	    var children = _props2.children;
+	    var containerElement = _props2.containerElement;
+	    var disabled = _props2.disabled;
+	    var disableFocusRipple = _props2.disableFocusRipple;
+	    var disableKeyboardFocus = _props2.disableKeyboardFocus;
+	    var disableTouchRipple = _props2.disableTouchRipple;
+	    var focusRippleColor = _props2.focusRippleColor;
+	    var focusRippleOpacity = _props2.focusRippleOpacity;
+	    var linkButton = _props2.linkButton;
+	    var touchRippleColor = _props2.touchRippleColor;
+	    var touchRippleOpacity = _props2.touchRippleOpacity;
+	    var onBlur = _props2.onBlur;
+	    var onFocus = _props2.onFocus;
+	    var onKeyUp = _props2.onKeyUp;
+	    var onKeyDown = _props2.onKeyDown;
+	    var onTouchTap = _props2.onTouchTap;
+	    var style = _props2.style;
+	    var tabIndex = _props2.tabIndex;
+	    var type = _props2.type;
+	
+	    var other = _objectWithoutProperties(_props2, ['centerRipple', 'children', 'containerElement', 'disabled', 'disableFocusRipple', 'disableKeyboardFocus', 'disableTouchRipple', 'focusRippleColor', 'focusRippleOpacity', 'linkButton', 'touchRippleColor', 'touchRippleOpacity', 'onBlur', 'onFocus', 'onKeyUp', 'onKeyDown', 'onTouchTap', 'style', 'tabIndex', 'type']);
+	
+	    var mergedStyles = this.prepareStyles({
+	      border: 10,
+	      background: 'none',
+	      boxSizing: 'border-box',
+	      display: 'inline-block',
+	      font: 'inherit',
+	      fontFamily: this.state.muiTheme.rawTheme.fontFamily,
+	      tapHighlightColor: _colors2.default.transparent,
+	      appearance: linkButton ? null : 'button',
+	      cursor: disabled ? 'default' : 'pointer',
+	      textDecoration: 'none',
+	      outline: 'none'
+	    }, style);
+	
+	    if (disabled && linkButton) {
+	      return _react2.default.createElement(
+	        'span',
+	        _extends({}, other, {
+	          style: mergedStyles }),
+	        children
+	      );
+	    }
+	
+	    var buttonProps = _extends({}, other, {
+	      style: mergedStyles,
+	      disabled: disabled,
+	      onBlur: this._handleBlur,
+	      onFocus: this._handleFocus,
+	      onTouchTap: this._handleTouchTap,
+	      onKeyUp: this._handleKeyUp,
+	      onKeyDown: this._handleKeyDown,
+	      tabIndex: tabIndex,
+	      type: type
+	    });
+	    var buttonChildren = this._createButtonChildren();
+	
+	    // Provides backward compatibity. Added to support wrapping around <a> element.
+	    var targetLinkElement = buttonProps.hasOwnProperty('href') ? 'a' : 'span';
+	
+	    return _react2.default.isValidElement(containerElement) ? _react2.default.cloneElement(containerElement, buttonProps, buttonChildren) : _react2.default.createElement(linkButton ? targetLinkElement : containerElement, buttonProps, buttonChildren);
+	  }
+	});
+	
+	exports.default = EnhancedButton;
 
 /***/ },
-/* 180 */
+/* 183 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(184);
+
+/***/ },
+/* 184 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactComponentWithPureRenderMixin
+	 */
+	
+	'use strict';
+	
+	var shallowCompare = __webpack_require__(185);
+	
+	/**
+	 * If your React component's render function is "pure", e.g. it will render the
+	 * same result given the same props and state, provide this Mixin for a
+	 * considerable performance boost.
+	 *
+	 * Most React components have pure render functions.
+	 *
+	 * Example:
+	 *
+	 *   var ReactComponentWithPureRenderMixin =
+	 *     require('ReactComponentWithPureRenderMixin');
+	 *   React.createClass({
+	 *     mixins: [ReactComponentWithPureRenderMixin],
+	 *
+	 *     render: function() {
+	 *       return <div className={this.props.className}>foo</div>;
+	 *     }
+	 *   });
+	 *
+	 * Note: This only checks shallow equality for props and state. If these contain
+	 * complex data structures this mixin may have false-negatives for deeper
+	 * differences. Only mixin to components which have simple props and state, or
+	 * use `forceUpdate()` when you know deep data structures have changed.
+	 */
+	var ReactComponentWithPureRenderMixin = {
+	  shouldComponentUpdate: function (nextProps, nextState) {
+	    return shallowCompare(this, nextProps, nextState);
+	  }
+	};
+	
+	module.exports = ReactComponentWithPureRenderMixin;
+
+/***/ },
+/* 185 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	* @providesModule shallowCompare
+	*/
+	
+	'use strict';
+	
+	var shallowEqual = __webpack_require__(117);
+	
+	/**
+	 * Does a shallow comparison for props and state.
+	 * See ReactComponentWithPureRenderMixin
+	 */
+	function shallowCompare(instance, nextProps, nextState) {
+	  return !shallowEqual(instance.props, nextProps) || !shallowEqual(instance.state, nextState);
+	}
+	
+	module.exports = shallowCompare;
+
+/***/ },
+/* 186 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -21427,516 +22431,9 @@ var app =
 	};
 
 /***/ },
-/* 181 */,
-/* 182 */,
-/* 183 */,
-/* 184 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = {
-	
-	  easeOutFunction: 'cubic-bezier(0.23, 1, 0.32, 1)',
-	  easeInOutFunction: 'cubic-bezier(0.445, 0.05, 0.55, 0.95)',
-	
-	  easeOut: function easeOut(duration, property, delay, easeFunction) {
-	
-	    easeFunction = easeFunction || this.easeOutFunction;
-	
-	    if (property && Object.prototype.toString.call(property) === '[object Array]') {
-	
-	      var transitions = '';
-	      for (var i = 0; i < property.length; i++) {
-	        if (transitions) transitions += ',';
-	        transitions += this.create(duration, property[i], delay, easeFunction);
-	      }
-	      return transitions;
-	    } else {
-	      return this.create(duration, property, delay, easeFunction);
-	    }
-	  },
-	  create: function create(duration, property, delay, easeFunction) {
-	    duration = duration || '450ms';
-	    property = property || 'all';
-	    delay = delay || '0ms';
-	    easeFunction = easeFunction || 'linear';
-	
-	    return property + ' ' + duration + ' ' + easeFunction + ' ' + delay;
-	  }
-	};
-
-/***/ },
-/* 185 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var horizontal = _react2.default.PropTypes.oneOf(['left', 'middle', 'right']);
-	var vertical = _react2.default.PropTypes.oneOf(['top', 'center', 'bottom']);
-	
-	exports.default = {
-	
-	  corners: _react2.default.PropTypes.oneOf(['bottom-left', 'bottom-right', 'top-left', 'top-right']),
-	
-	  horizontal: horizontal,
-	
-	  vertical: vertical,
-	
-	  origin: _react2.default.PropTypes.shape({
-	    horizontal: horizontal,
-	    vertical: vertical
-	  }),
-	
-	  cornersAndCenter: _react2.default.PropTypes.oneOf(['bottom-center', 'bottom-left', 'bottom-right', 'top-center', 'top-left', 'top-right']),
-	
-	  stringOrNumber: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number]),
-	
-	  zDepth: _react2.default.PropTypes.oneOf([0, 1, 2, 3, 4, 5])
-	
-	};
-
-/***/ },
-/* 186 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactAddonsPureRenderMixin = __webpack_require__(187);
-	
-	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
-	
-	var _stylePropable = __webpack_require__(161);
-	
-	var _stylePropable2 = _interopRequireDefault(_stylePropable);
-	
-	var _colors = __webpack_require__(180);
-	
-	var _colors2 = _interopRequireDefault(_colors);
-	
-	var _children = __webpack_require__(190);
-	
-	var _children2 = _interopRequireDefault(_children);
-	
-	var _events = __webpack_require__(193);
-	
-	var _events2 = _interopRequireDefault(_events);
-	
-	var _keyCode = __webpack_require__(194);
-	
-	var _keyCode2 = _interopRequireDefault(_keyCode);
-	
-	var _focusRipple = __webpack_require__(195);
-	
-	var _focusRipple2 = _interopRequireDefault(_focusRipple);
-	
-	var _touchRipple = __webpack_require__(226);
-	
-	var _touchRipple2 = _interopRequireDefault(_touchRipple);
-	
-	var _lightRawTheme = __webpack_require__(201);
-	
-	var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
-	
-	var _themeManager = __webpack_require__(205);
-	
-	var _themeManager2 = _interopRequireDefault(_themeManager);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-	
-	var styleInjected = false;
-	var listening = false;
-	var tabPressed = false;
-	
-	function injectStyle() {
-	  if (!styleInjected) {
-	    // Remove inner padding and border in Firefox 4+.
-	    var style = document.createElement('style');
-	    style.innerHTML = '\n      button::-moz-focus-inner,\n      input::-moz-focus-inner {\n        border: 0;\n        padding: 0;\n      }\n    ';
-	
-	    document.body.appendChild(style);
-	    styleInjected = true;
-	  }
-	}
-	
-	function listenForTabPresses() {
-	  if (!listening) {
-	    _events2.default.on(window, 'keydown', function (e) {
-	      tabPressed = e.keyCode === _keyCode2.default.TAB;
-	    });
-	    listening = true;
-	  }
-	}
-	
-	var EnhancedButton = _react2.default.createClass({
-	  displayName: 'EnhancedButton',
-	
-	  propTypes: {
-	    centerRipple: _react2.default.PropTypes.bool,
-	    children: _react2.default.PropTypes.node,
-	    containerElement: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.element]),
-	    disableFocusRipple: _react2.default.PropTypes.bool,
-	    disableKeyboardFocus: _react2.default.PropTypes.bool,
-	    disableTouchRipple: _react2.default.PropTypes.bool,
-	    disabled: _react2.default.PropTypes.bool,
-	    focusRippleColor: _react2.default.PropTypes.string,
-	    focusRippleOpacity: _react2.default.PropTypes.number,
-	    keyboardFocused: _react2.default.PropTypes.bool,
-	    linkButton: _react2.default.PropTypes.bool,
-	    onBlur: _react2.default.PropTypes.func,
-	    onFocus: _react2.default.PropTypes.func,
-	    onKeyDown: _react2.default.PropTypes.func,
-	    onKeyUp: _react2.default.PropTypes.func,
-	    onKeyboardFocus: _react2.default.PropTypes.func,
-	    onTouchTap: _react2.default.PropTypes.func,
-	
-	    /**
-	     * Override the inline-styles of the root element.
-	     */
-	    style: _react2.default.PropTypes.object,
-	    tabIndex: _react2.default.PropTypes.number,
-	    touchRippleColor: _react2.default.PropTypes.string,
-	    touchRippleOpacity: _react2.default.PropTypes.number,
-	    type: _react2.default.PropTypes.string
-	  },
-	
-	  contextTypes: {
-	    muiTheme: _react2.default.PropTypes.object
-	  },
-	
-	  //for passing default theme context to children
-	  childContextTypes: {
-	    muiTheme: _react2.default.PropTypes.object
-	  },
-	
-	  mixins: [_reactAddonsPureRenderMixin2.default, _stylePropable2.default],
-	
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      containerElement: 'button',
-	      onBlur: function onBlur() {},
-	      onFocus: function onFocus() {},
-	      onKeyboardFocus: function onKeyboardFocus() {},
-	      onKeyDown: function onKeyDown() {},
-	      onKeyUp: function onKeyUp() {},
-	      onTouchTap: function onTouchTap() {},
-	      tabIndex: 0,
-	      type: 'button'
-	    };
-	  },
-	  getInitialState: function getInitialState() {
-	    return {
-	      isKeyboardFocused: !this.props.disabled && this.props.keyboardFocused && !this.props.disableKeyboardFocus,
-	      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
-	    };
-	  },
-	  getChildContext: function getChildContext() {
-	    return {
-	      muiTheme: this.state.muiTheme
-	    };
-	  },
-	  componentDidMount: function componentDidMount() {
-	    injectStyle();
-	    listenForTabPresses();
-	  },
-	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
-	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
-	    this.setState({ muiTheme: newMuiTheme });
-	
-	    if ((nextProps.disabled || nextProps.disableKeyboardFocus) && this.state.isKeyboardFocused) {
-	      this.setState({ isKeyboardFocused: false });
-	      if (nextProps.onKeyboardFocus) {
-	        nextProps.onKeyboardFocus(null, false);
-	      }
-	    }
-	  },
-	  isKeyboardFocused: function isKeyboardFocused() {
-	    return this.state.isKeyboardFocused;
-	  },
-	  removeKeyboardFocus: function removeKeyboardFocus(e) {
-	    if (this.state.isKeyboardFocused) {
-	      this.setState({ isKeyboardFocused: false });
-	      this.props.onKeyboardFocus(e, false);
-	    }
-	  },
-	  setKeyboardFocus: function setKeyboardFocus(e) {
-	    if (!this.state.isKeyboardFocused) {
-	      this.setState({ isKeyboardFocused: true });
-	      this.props.onKeyboardFocus(e, true);
-	    }
-	  },
-	  _cancelFocusTimeout: function _cancelFocusTimeout() {
-	    if (this._focusTimeout) {
-	      clearTimeout(this._focusTimeout);
-	      this._focusTimeout = null;
-	    }
-	  },
-	  _createButtonChildren: function _createButtonChildren() {
-	    var _props = this.props;
-	    var centerRipple = _props.centerRipple;
-	    var children = _props.children;
-	    var disabled = _props.disabled;
-	    var disableFocusRipple = _props.disableFocusRipple;
-	    var disableKeyboardFocus = _props.disableKeyboardFocus;
-	    var disableTouchRipple = _props.disableTouchRipple;
-	    var focusRippleColor = _props.focusRippleColor;
-	    var focusRippleOpacity = _props.focusRippleOpacity;
-	    var touchRippleColor = _props.touchRippleColor;
-	    var touchRippleOpacity = _props.touchRippleOpacity;
-	    var isKeyboardFocused = this.state.isKeyboardFocused;
-	
-	    //Focus Ripple
-	
-	    var focusRipple = isKeyboardFocused && !disabled && !disableFocusRipple && !disableKeyboardFocus ? _react2.default.createElement(_focusRipple2.default, {
-	      color: focusRippleColor,
-	      opacity: focusRippleOpacity,
-	      show: isKeyboardFocused
-	    }) : undefined;
-	
-	    //Touch Ripple
-	    var touchRipple = !disabled && !disableTouchRipple ? _react2.default.createElement(
-	      _touchRipple2.default,
-	      {
-	        centerRipple: centerRipple,
-	        color: touchRippleColor,
-	        opacity: touchRippleOpacity },
-	      children
-	    ) : undefined;
-	
-	    return _children2.default.create({
-	      focusRipple: focusRipple,
-	      touchRipple: touchRipple,
-	      children: touchRipple ? undefined : children
-	    });
-	  },
-	  _handleKeyDown: function _handleKeyDown(e) {
-	    if (!this.props.disabled && !this.props.disableKeyboardFocus) {
-	      if (e.keyCode === _keyCode2.default.ENTER && this.state.isKeyboardFocused) {
-	        this._handleTouchTap(e);
-	      }
-	    }
-	    this.props.onKeyDown(e);
-	  },
-	  _handleKeyUp: function _handleKeyUp(e) {
-	    if (!this.props.disabled && e.keyCode === _keyCode2.default.SPACE && this.state.isKeyboardFocused) {
-	      this._handleTouchTap(e);
-	    }
-	    this.props.onKeyUp(e);
-	  },
-	  _handleBlur: function _handleBlur(e) {
-	    this._cancelFocusTimeout();
-	    this.removeKeyboardFocus(e);
-	    this.props.onBlur(e);
-	  },
-	  _handleFocus: function _handleFocus(e) {
-	    var _this = this;
-	
-	    if (!this.props.disabled && !this.props.disableKeyboardFocus) {
-	      //setTimeout is needed because the focus event fires first
-	      //Wait so that we can capture if this was a keyboard focus
-	      //or touch focus
-	      this._focusTimeout = setTimeout(function () {
-	        if (tabPressed) {
-	          _this.setKeyboardFocus(e);
-	        }
-	      }, 150);
-	
-	      this.props.onFocus(e);
-	    }
-	  },
-	  _handleTouchTap: function _handleTouchTap(e) {
-	    this._cancelFocusTimeout();
-	    if (!this.props.disabled) {
-	      tabPressed = false;
-	      this.removeKeyboardFocus(e);
-	      this.props.onTouchTap(e);
-	    }
-	  },
-	  render: function render() {
-	    var _props2 = this.props;
-	    var centerRipple = _props2.centerRipple;
-	    var children = _props2.children;
-	    var containerElement = _props2.containerElement;
-	    var disabled = _props2.disabled;
-	    var disableFocusRipple = _props2.disableFocusRipple;
-	    var disableKeyboardFocus = _props2.disableKeyboardFocus;
-	    var disableTouchRipple = _props2.disableTouchRipple;
-	    var focusRippleColor = _props2.focusRippleColor;
-	    var focusRippleOpacity = _props2.focusRippleOpacity;
-	    var linkButton = _props2.linkButton;
-	    var touchRippleColor = _props2.touchRippleColor;
-	    var touchRippleOpacity = _props2.touchRippleOpacity;
-	    var onBlur = _props2.onBlur;
-	    var onFocus = _props2.onFocus;
-	    var onKeyUp = _props2.onKeyUp;
-	    var onKeyDown = _props2.onKeyDown;
-	    var onTouchTap = _props2.onTouchTap;
-	    var style = _props2.style;
-	    var tabIndex = _props2.tabIndex;
-	    var type = _props2.type;
-	
-	    var other = _objectWithoutProperties(_props2, ['centerRipple', 'children', 'containerElement', 'disabled', 'disableFocusRipple', 'disableKeyboardFocus', 'disableTouchRipple', 'focusRippleColor', 'focusRippleOpacity', 'linkButton', 'touchRippleColor', 'touchRippleOpacity', 'onBlur', 'onFocus', 'onKeyUp', 'onKeyDown', 'onTouchTap', 'style', 'tabIndex', 'type']);
-	
-	    var mergedStyles = this.prepareStyles({
-	      border: 10,
-	      background: 'none',
-	      boxSizing: 'border-box',
-	      display: 'inline-block',
-	      font: 'inherit',
-	      fontFamily: this.state.muiTheme.rawTheme.fontFamily,
-	      tapHighlightColor: _colors2.default.transparent,
-	      appearance: linkButton ? null : 'button',
-	      cursor: disabled ? 'default' : 'pointer',
-	      textDecoration: 'none',
-	      outline: 'none'
-	    }, style);
-	
-	    if (disabled && linkButton) {
-	      return _react2.default.createElement(
-	        'span',
-	        _extends({}, other, {
-	          style: mergedStyles }),
-	        children
-	      );
-	    }
-	
-	    var buttonProps = _extends({}, other, {
-	      style: mergedStyles,
-	      disabled: disabled,
-	      onBlur: this._handleBlur,
-	      onFocus: this._handleFocus,
-	      onTouchTap: this._handleTouchTap,
-	      onKeyUp: this._handleKeyUp,
-	      onKeyDown: this._handleKeyDown,
-	      tabIndex: tabIndex,
-	      type: type
-	    });
-	    var buttonChildren = this._createButtonChildren();
-	
-	    // Provides backward compatibity. Added to support wrapping around <a> element.
-	    var targetLinkElement = buttonProps.hasOwnProperty('href') ? 'a' : 'span';
-	
-	    return _react2.default.isValidElement(containerElement) ? _react2.default.cloneElement(containerElement, buttonProps, buttonChildren) : _react2.default.createElement(linkButton ? targetLinkElement : containerElement, buttonProps, buttonChildren);
-	  }
-	});
-	
-	exports.default = EnhancedButton;
-
-/***/ },
 /* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(188);
-
-/***/ },
-/* 188 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactComponentWithPureRenderMixin
-	 */
-	
-	'use strict';
-	
-	var shallowCompare = __webpack_require__(189);
-	
-	/**
-	 * If your React component's render function is "pure", e.g. it will render the
-	 * same result given the same props and state, provide this Mixin for a
-	 * considerable performance boost.
-	 *
-	 * Most React components have pure render functions.
-	 *
-	 * Example:
-	 *
-	 *   var ReactComponentWithPureRenderMixin =
-	 *     require('ReactComponentWithPureRenderMixin');
-	 *   React.createClass({
-	 *     mixins: [ReactComponentWithPureRenderMixin],
-	 *
-	 *     render: function() {
-	 *       return <div className={this.props.className}>foo</div>;
-	 *     }
-	 *   });
-	 *
-	 * Note: This only checks shallow equality for props and state. If these contain
-	 * complex data structures this mixin may have false-negatives for deeper
-	 * differences. Only mixin to components which have simple props and state, or
-	 * use `forceUpdate()` when you know deep data structures have changed.
-	 */
-	var ReactComponentWithPureRenderMixin = {
-	  shouldComponentUpdate: function (nextProps, nextState) {
-	    return shallowCompare(this, nextProps, nextState);
-	  }
-	};
-	
-	module.exports = ReactComponentWithPureRenderMixin;
-
-/***/ },
-/* 189 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	* @providesModule shallowCompare
-	*/
-	
-	'use strict';
-	
-	var shallowEqual = __webpack_require__(117);
-	
-	/**
-	 * Does a shallow comparison for props and state.
-	 * See ReactComponentWithPureRenderMixin
-	 */
-	function shallowCompare(instance, nextProps, nextState) {
-	  return !shallowEqual(instance.props, nextProps) || !shallowEqual(instance.state, nextState);
-	}
-	
-	module.exports = shallowCompare;
-
-/***/ },
-/* 190 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -21947,7 +22444,7 @@ var app =
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactAddonsCreateFragment = __webpack_require__(191);
+	var _reactAddonsCreateFragment = __webpack_require__(188);
 	
 	var _reactAddonsCreateFragment2 = _interopRequireDefault(_reactAddonsCreateFragment);
 	
@@ -21988,13 +22485,13 @@ var app =
 	};
 
 /***/ },
-/* 191 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(192).create;
+	module.exports = __webpack_require__(189).create;
 
 /***/ },
-/* 192 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -22064,7 +22561,7 @@ var app =
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 193 */
+/* 190 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22108,7 +22605,7 @@ var app =
 	};
 
 /***/ },
-/* 194 */
+/* 191 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22128,7 +22625,7 @@ var app =
 	};
 
 /***/ },
-/* 195 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22145,27 +22642,27 @@ var app =
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _reactAddonsPureRenderMixin = __webpack_require__(187);
+	var _reactAddonsPureRenderMixin = __webpack_require__(183);
 	
 	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
 	
-	var _stylePropable = __webpack_require__(161);
+	var _stylePropable = __webpack_require__(162);
 	
 	var _stylePropable2 = _interopRequireDefault(_stylePropable);
 	
-	var _autoPrefix = __webpack_require__(166);
+	var _autoPrefix = __webpack_require__(167);
 	
 	var _autoPrefix2 = _interopRequireDefault(_autoPrefix);
 	
-	var _colors = __webpack_require__(180);
+	var _colors = __webpack_require__(186);
 	
 	var _colors2 = _interopRequireDefault(_colors);
 	
-	var _transitions = __webpack_require__(184);
+	var _transitions = __webpack_require__(180);
 	
 	var _transitions2 = _interopRequireDefault(_transitions);
 	
-	var _scaleIn = __webpack_require__(196);
+	var _scaleIn = __webpack_require__(193);
 	
 	var _scaleIn2 = _interopRequireDefault(_scaleIn);
 	
@@ -22285,7 +22782,7 @@ var app =
 	exports.default = FocusRipple;
 
 /***/ },
-/* 196 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22300,27 +22797,27 @@ var app =
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactAddonsPureRenderMixin = __webpack_require__(187);
+	var _reactAddonsPureRenderMixin = __webpack_require__(183);
 	
 	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
 	
-	var _reactAddonsTransitionGroup = __webpack_require__(197);
+	var _reactAddonsTransitionGroup = __webpack_require__(194);
 	
 	var _reactAddonsTransitionGroup2 = _interopRequireDefault(_reactAddonsTransitionGroup);
 	
-	var _stylePropable = __webpack_require__(161);
+	var _stylePropable = __webpack_require__(162);
 	
 	var _stylePropable2 = _interopRequireDefault(_stylePropable);
 	
-	var _scaleInChild = __webpack_require__(200);
+	var _scaleInChild = __webpack_require__(197);
 	
 	var _scaleInChild2 = _interopRequireDefault(_scaleInChild);
 	
-	var _lightRawTheme = __webpack_require__(201);
+	var _lightRawTheme = __webpack_require__(198);
 	
 	var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
 	
-	var _themeManager = __webpack_require__(205);
+	var _themeManager = __webpack_require__(201);
 	
 	var _themeManager2 = _interopRequireDefault(_themeManager);
 	
@@ -22420,13 +22917,13 @@ var app =
 	exports.default = ScaleIn;
 
 /***/ },
-/* 197 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(198);
+	module.exports = __webpack_require__(195);
 
 /***/ },
-/* 198 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22443,7 +22940,7 @@ var app =
 	'use strict';
 	
 	var React = __webpack_require__(2);
-	var ReactTransitionChildMapping = __webpack_require__(199);
+	var ReactTransitionChildMapping = __webpack_require__(196);
 	
 	var assign = __webpack_require__(39);
 	var emptyFunction = __webpack_require__(15);
@@ -22636,7 +23133,7 @@ var app =
 	module.exports = ReactTransitionGroup;
 
 /***/ },
-/* 199 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22739,7 +23236,7 @@ var app =
 	module.exports = ReactTransitionChildMapping;
 
 /***/ },
-/* 200 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22758,27 +23255,27 @@ var app =
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _reactAddonsPureRenderMixin = __webpack_require__(187);
+	var _reactAddonsPureRenderMixin = __webpack_require__(183);
 	
 	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
 	
-	var _stylePropable = __webpack_require__(161);
+	var _stylePropable = __webpack_require__(162);
 	
 	var _stylePropable2 = _interopRequireDefault(_stylePropable);
 	
-	var _autoPrefix = __webpack_require__(166);
+	var _autoPrefix = __webpack_require__(167);
 	
 	var _autoPrefix2 = _interopRequireDefault(_autoPrefix);
 	
-	var _transitions = __webpack_require__(184);
+	var _transitions = __webpack_require__(180);
 	
 	var _transitions2 = _interopRequireDefault(_transitions);
 	
-	var _lightRawTheme = __webpack_require__(201);
+	var _lightRawTheme = __webpack_require__(198);
 	
 	var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
 	
-	var _themeManager = __webpack_require__(205);
+	var _themeManager = __webpack_require__(201);
 	
 	var _themeManager2 = _interopRequireDefault(_themeManager);
 	
@@ -22907,7 +23404,7 @@ var app =
 	exports.default = ScaleInChild;
 
 /***/ },
-/* 201 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22916,7 +23413,7 @@ var app =
 	  value: true
 	});
 	
-	var _lightBaseTheme = __webpack_require__(202);
+	var _lightBaseTheme = __webpack_require__(199);
 	
 	Object.defineProperty(exports, 'default', {
 	  enumerable: true,
@@ -22926,7 +23423,7 @@ var app =
 	});
 
 /***/ },
-/* 202 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22935,15 +23432,15 @@ var app =
 	  value: true
 	});
 	
-	var _colors = __webpack_require__(180);
+	var _colors = __webpack_require__(186);
 	
 	var _colors2 = _interopRequireDefault(_colors);
 	
-	var _colorManipulator = __webpack_require__(203);
+	var _colorManipulator = __webpack_require__(181);
 	
 	var _colorManipulator2 = _interopRequireDefault(_colorManipulator);
 	
-	var _spacing = __webpack_require__(204);
+	var _spacing = __webpack_require__(200);
 	
 	var _spacing2 = _interopRequireDefault(_spacing);
 	
@@ -22976,189 +23473,7 @@ var app =
 	};
 
 /***/ },
-/* 203 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = {
-	
-	  /**
-	   * The relative brightness of any point in a colorspace, normalized to 0 for
-	   * darkest black and 1 for lightest white. RGB colors only. Does not take
-	   * into account alpha values.
-	   *
-	   * TODO:
-	   * - Take into account alpha values.
-	   * - Identify why there are minor discrepancies for some use cases
-	   *   (i.e. #F0F & #FFF). Note that these cases rarely occur.
-	   *
-	   * Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
-	   */
-	
-	  _luminance: function _luminance(color) {
-	    color = this._decomposeColor(color);
-	
-	    if (color.type.indexOf('rgb') > -1) {
-	      var rgb = color.values.map(function (val) {
-	        val /= 255; // normalized
-	        return val <= 0.03928 ? val / 12.92 : Math.pow((val + 0.055) / 1.055, 2.4);
-	      });
-	
-	      return 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
-	    } else {
-	      var message = 'Calculating the relative luminance is not available for ' + 'HSL and HSLA.';
-	      console.error(message);
-	      return -1;
-	    }
-	  },
-	
-	  /**
-	   * @params:
-	   * additionalValue = An extra value that has been calculated but not included
-	   *                   with the original color object, such as an alpha value.
-	   */
-	  _convertColorToString: function _convertColorToString(color, additonalValue) {
-	    var str = color.type + '(' + parseInt(color.values[0]) + ',' + parseInt(color.values[1]) + ',' + parseInt(color.values[2]);
-	
-	    if (additonalValue !== undefined) {
-	      str += ',' + additonalValue + ')';
-	    } else if (color.values.length === 4) {
-	      str += ',' + color.values[3] + ')';
-	    } else {
-	      str += ')';
-	    }
-	
-	    return str;
-	  },
-	
-	  // Converts a color from hex format to rgb format.
-	  _convertHexToRGB: function _convertHexToRGB(color) {
-	    if (color.length === 4) {
-	      var extendedColor = '#';
-	      for (var i = 1; i < color.length; i++) {
-	        extendedColor += color.charAt(i) + color.charAt(i);
-	      }
-	      color = extendedColor;
-	    }
-	
-	    var values = {
-	      r: parseInt(color.substr(1, 2), 16),
-	      g: parseInt(color.substr(3, 2), 16),
-	      b: parseInt(color.substr(5, 2), 16)
-	    };
-	
-	    return 'rgb(' + values.r + ',' + values.g + ',' + values.b + ')';
-	  },
-	
-	  // Returns the type and values of a color of any given type.
-	  _decomposeColor: function _decomposeColor(color) {
-	    if (color.charAt(0) === '#') {
-	      return this._decomposeColor(this._convertHexToRGB(color));
-	    }
-	
-	    var marker = color.indexOf('(');
-	    var type = color.substring(0, marker);
-	    var values = color.substring(marker + 1, color.length - 1).split(',');
-	
-	    return { type: type, values: values };
-	  },
-	
-	  // Set the absolute transparency of a color.
-	  // Any existing alpha values are overwritten.
-	  fade: function fade(color, amount) {
-	    color = this._decomposeColor(color);
-	    if (color.type === 'rgb' || color.type === 'hsl') color.type += 'a';
-	    return this._convertColorToString(color, amount);
-	  },
-	
-	  // Desaturates rgb and sets opacity to 0.15
-	  lighten: function lighten(color, amount) {
-	    color = this._decomposeColor(color);
-	
-	    if (color.type.indexOf('hsl') > -1) {
-	      color.values[2] += amount;
-	      return this._decomposeColor(this._convertColorToString(color));
-	    } else if (color.type.indexOf('rgb') > -1) {
-	      for (var i = 0; i < 3; i++) {
-	        color.values[i] *= 1 + amount;
-	        if (color.values[i] > 255) color.values[i] = 255;
-	      }
-	    }
-	
-	    if (color.type.indexOf('a') <= -1) color.type += 'a';
-	
-	    return this._convertColorToString(color, '0.15');
-	  },
-	  darken: function darken(color, amount) {
-	    color = this._decomposeColor(color);
-	
-	    if (color.type.indexOf('hsl') > -1) {
-	      color.values[2] += amount;
-	      return this._decomposeColor(this._convertColorToString(color));
-	    } else if (color.type.indexOf('rgb') > -1) {
-	      for (var i = 0; i < 3; i++) {
-	        color.values[i] *= 1 - amount;
-	        if (color.values[i] < 0) color.values[i] = 0;
-	      }
-	    }
-	
-	    return this._convertColorToString(color);
-	  },
-	
-	  // Calculates the contrast ratio between two colors.
-	  //
-	  // Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
-	  contrastRatio: function contrastRatio(background, foreground) {
-	    var lumA = this._luminance(background);
-	    var lumB = this._luminance(foreground);
-	
-	    if (lumA >= lumB) {
-	      return ((lumA + 0.05) / (lumB + 0.05)).toFixed(2);
-	    } else {
-	      return ((lumB + 0.05) / (lumA + 0.05)).toFixed(2);
-	    }
-	  },
-	
-	  /**
-	   * Determines how readable a color combination is based on its level.
-	   * Levels are defined from @LeaVerou:
-	   * https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/contrast-ratio.js
-	   */
-	  contrastRatioLevel: function contrastRatioLevel(background, foreground) {
-	    var levels = {
-	      'fail': {
-	        range: [0, 3],
-	        color: 'hsl(0, 100%, 40%)'
-	      },
-	      'aa-large': {
-	        range: [3, 4.5],
-	        color: 'hsl(40, 100%, 45%)'
-	      },
-	      'aa': {
-	        range: [4.5, 7],
-	        color: 'hsl(80, 60%, 45%)'
-	      },
-	      'aaa': {
-	        range: [7, 22],
-	        color: 'hsl(95, 60%, 41%)'
-	      }
-	    };
-	
-	    var ratio = this.contrastRatio(background, foreground);
-	
-	    for (var level in levels) {
-	      var range = levels[level].range;
-	      if (ratio >= range[0] && ratio <= range[1]) return level;
-	    }
-	  }
-	};
-
-/***/ },
-/* 204 */
+/* 200 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -23182,7 +23497,7 @@ var app =
 	};
 
 /***/ },
-/* 205 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23191,15 +23506,15 @@ var app =
 	  value: true
 	});
 	
-	var _reactAddonsUpdate = __webpack_require__(163);
+	var _reactAddonsUpdate = __webpack_require__(164);
 	
 	var _reactAddonsUpdate2 = _interopRequireDefault(_reactAddonsUpdate);
 	
-	var _extend = __webpack_require__(206);
+	var _extend = __webpack_require__(202);
 	
 	var _extend2 = _interopRequireDefault(_extend);
 	
-	var _getMuiTheme = __webpack_require__(207);
+	var _getMuiTheme = __webpack_require__(203);
 	
 	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 	
@@ -23226,7 +23541,7 @@ var app =
 	//);
 
 /***/ },
-/* 206 */
+/* 202 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23286,7 +23601,7 @@ var app =
 	exports.default = extend;
 
 /***/ },
-/* 207 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23296,23 +23611,23 @@ var app =
 	});
 	exports.default = getMuiTheme;
 	
-	var _lodash = __webpack_require__(208);
+	var _lodash = __webpack_require__(204);
 	
 	var _lodash2 = _interopRequireDefault(_lodash);
 	
-	var _colors = __webpack_require__(180);
+	var _colors = __webpack_require__(186);
 	
 	var _colors2 = _interopRequireDefault(_colors);
 	
-	var _colorManipulator = __webpack_require__(203);
+	var _colorManipulator = __webpack_require__(181);
 	
 	var _colorManipulator2 = _interopRequireDefault(_colorManipulator);
 	
-	var _lightBaseTheme = __webpack_require__(202);
+	var _lightBaseTheme = __webpack_require__(199);
 	
 	var _lightBaseTheme2 = _interopRequireDefault(_lightBaseTheme);
 	
-	var _zIndex = __webpack_require__(225);
+	var _zIndex = __webpack_require__(221);
 	
 	var _zIndex2 = _interopRequireDefault(_zIndex);
 	
@@ -23542,7 +23857,7 @@ var app =
 	}
 
 /***/ },
-/* 208 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23553,15 +23868,15 @@ var app =
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var arrayCopy = __webpack_require__(209),
-	    arrayEach = __webpack_require__(210),
-	    createAssigner = __webpack_require__(211),
-	    isArguments = __webpack_require__(215),
-	    isArray = __webpack_require__(216),
-	    isPlainObject = __webpack_require__(217),
-	    isTypedArray = __webpack_require__(220),
-	    keys = __webpack_require__(221),
-	    toPlainObject = __webpack_require__(223);
+	var arrayCopy = __webpack_require__(205),
+	    arrayEach = __webpack_require__(206),
+	    createAssigner = __webpack_require__(207),
+	    isArguments = __webpack_require__(211),
+	    isArray = __webpack_require__(212),
+	    isPlainObject = __webpack_require__(213),
+	    isTypedArray = __webpack_require__(216),
+	    keys = __webpack_require__(217),
+	    toPlainObject = __webpack_require__(219);
 	
 	/**
 	 * Checks if `value` is object-like.
@@ -23814,7 +24129,7 @@ var app =
 
 
 /***/ },
-/* 209 */
+/* 205 */
 /***/ function(module, exports) {
 
 	/**
@@ -23849,7 +24164,7 @@ var app =
 
 
 /***/ },
-/* 210 */
+/* 206 */
 /***/ function(module, exports) {
 
 	/**
@@ -23886,7 +24201,7 @@ var app =
 
 
 /***/ },
-/* 211 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23897,9 +24212,9 @@ var app =
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var bindCallback = __webpack_require__(212),
-	    isIterateeCall = __webpack_require__(213),
-	    restParam = __webpack_require__(214);
+	var bindCallback = __webpack_require__(208),
+	    isIterateeCall = __webpack_require__(209),
+	    restParam = __webpack_require__(210);
 	
 	/**
 	 * Creates a function that assigns properties of source object(s) to a given
@@ -23944,7 +24259,7 @@ var app =
 
 
 /***/ },
-/* 212 */
+/* 208 */
 /***/ function(module, exports) {
 
 	/**
@@ -24015,7 +24330,7 @@ var app =
 
 
 /***/ },
-/* 213 */
+/* 209 */
 /***/ function(module, exports) {
 
 	/**
@@ -24153,7 +24468,7 @@ var app =
 
 
 /***/ },
-/* 214 */
+/* 210 */
 /***/ function(module, exports) {
 
 	/**
@@ -24226,7 +24541,7 @@ var app =
 
 
 /***/ },
-/* 215 */
+/* 211 */
 /***/ function(module, exports) {
 
 	/**
@@ -24338,7 +24653,7 @@ var app =
 
 
 /***/ },
-/* 216 */
+/* 212 */
 /***/ function(module, exports) {
 
 	/**
@@ -24524,7 +24839,7 @@ var app =
 
 
 /***/ },
-/* 217 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24535,9 +24850,9 @@ var app =
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(218),
-	    isArguments = __webpack_require__(215),
-	    keysIn = __webpack_require__(219);
+	var baseFor = __webpack_require__(214),
+	    isArguments = __webpack_require__(211),
+	    keysIn = __webpack_require__(215);
 	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -24633,7 +24948,7 @@ var app =
 
 
 /***/ },
-/* 218 */
+/* 214 */
 /***/ function(module, exports) {
 
 	/**
@@ -24725,7 +25040,7 @@ var app =
 
 
 /***/ },
-/* 219 */
+/* 215 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24736,8 +25051,8 @@ var app =
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(215),
-	    isArray = __webpack_require__(216);
+	var isArguments = __webpack_require__(211),
+	    isArray = __webpack_require__(212);
 	
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -24863,7 +25178,7 @@ var app =
 
 
 /***/ },
-/* 220 */
+/* 216 */
 /***/ function(module, exports) {
 
 	/**
@@ -24979,7 +25294,7 @@ var app =
 
 
 /***/ },
-/* 221 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24990,9 +25305,9 @@ var app =
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var getNative = __webpack_require__(222),
-	    isArguments = __webpack_require__(215),
-	    isArray = __webpack_require__(216);
+	var getNative = __webpack_require__(218),
+	    isArguments = __webpack_require__(211),
+	    isArray = __webpack_require__(212);
 	
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -25221,7 +25536,7 @@ var app =
 
 
 /***/ },
-/* 222 */
+/* 218 */
 /***/ function(module, exports) {
 
 	/**
@@ -25364,7 +25679,7 @@ var app =
 
 
 /***/ },
-/* 223 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -25375,8 +25690,8 @@ var app =
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseCopy = __webpack_require__(224),
-	    keysIn = __webpack_require__(219);
+	var baseCopy = __webpack_require__(220),
+	    keysIn = __webpack_require__(215);
 	
 	/**
 	 * Converts `value` to a plain object flattening inherited enumerable
@@ -25409,7 +25724,7 @@ var app =
 
 
 /***/ },
-/* 224 */
+/* 220 */
 /***/ function(module, exports) {
 
 	/**
@@ -25447,7 +25762,7 @@ var app =
 
 
 /***/ },
-/* 225 */
+/* 221 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -25469,7 +25784,7 @@ var app =
 	};
 
 /***/ },
-/* 226 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25486,27 +25801,27 @@ var app =
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _reactAddonsPureRenderMixin = __webpack_require__(187);
+	var _reactAddonsPureRenderMixin = __webpack_require__(183);
 	
 	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
 	
-	var _reactAddonsTransitionGroup = __webpack_require__(197);
+	var _reactAddonsTransitionGroup = __webpack_require__(194);
 	
 	var _reactAddonsTransitionGroup2 = _interopRequireDefault(_reactAddonsTransitionGroup);
 	
-	var _stylePropable = __webpack_require__(161);
+	var _stylePropable = __webpack_require__(162);
 	
 	var _stylePropable2 = _interopRequireDefault(_stylePropable);
 	
-	var _dom = __webpack_require__(227);
+	var _dom = __webpack_require__(223);
 	
 	var _dom2 = _interopRequireDefault(_dom);
 	
-	var _immutabilityHelper = __webpack_require__(162);
+	var _immutabilityHelper = __webpack_require__(163);
 	
 	var _immutabilityHelper2 = _interopRequireDefault(_immutabilityHelper);
 	
-	var _circleRipple = __webpack_require__(228);
+	var _circleRipple = __webpack_require__(224);
 	
 	var _circleRipple2 = _interopRequireDefault(_circleRipple);
 	
@@ -25663,7 +25978,7 @@ var app =
 	exports.default = TouchRipple;
 
 /***/ },
-/* 227 */
+/* 223 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25739,7 +26054,7 @@ var app =
 	};
 
 /***/ },
-/* 228 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25758,23 +26073,23 @@ var app =
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _reactAddonsPureRenderMixin = __webpack_require__(187);
+	var _reactAddonsPureRenderMixin = __webpack_require__(183);
 	
 	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
 	
-	var _stylePropable = __webpack_require__(161);
+	var _stylePropable = __webpack_require__(162);
 	
 	var _stylePropable2 = _interopRequireDefault(_stylePropable);
 	
-	var _autoPrefix = __webpack_require__(166);
+	var _autoPrefix = __webpack_require__(167);
 	
 	var _autoPrefix2 = _interopRequireDefault(_autoPrefix);
 	
-	var _transitions = __webpack_require__(184);
+	var _transitions = __webpack_require__(180);
 	
 	var _transitions2 = _interopRequireDefault(_transitions);
 	
-	var _colors = __webpack_require__(180);
+	var _colors = __webpack_require__(186);
 	
 	var _colors2 = _interopRequireDefault(_colors);
 	
@@ -25865,11 +26180,7 @@ var app =
 	exports.default = CircleRipple;
 
 /***/ },
-/* 229 */,
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25884,27 +26195,154 @@ var app =
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactAddonsPureRenderMixin = __webpack_require__(187);
-	
-	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
-	
-	var _stylePropable = __webpack_require__(161);
+	var _stylePropable = __webpack_require__(162);
 	
 	var _stylePropable2 = _interopRequireDefault(_stylePropable);
 	
-	var _propTypes = __webpack_require__(185);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _transitions = __webpack_require__(184);
+	var _transitions = __webpack_require__(180);
 	
 	var _transitions2 = _interopRequireDefault(_transitions);
 	
-	var _lightRawTheme = __webpack_require__(201);
+	var _lightRawTheme = __webpack_require__(198);
 	
 	var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
 	
-	var _themeManager = __webpack_require__(205);
+	var _themeManager = __webpack_require__(201);
+	
+	var _themeManager2 = _interopRequireDefault(_themeManager);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+	
+	var FontIcon = _react2.default.createClass({
+	  displayName: 'FontIcon',
+	
+	  propTypes: {
+	    color: _react2.default.PropTypes.string,
+	    hoverColor: _react2.default.PropTypes.string,
+	    onMouseEnter: _react2.default.PropTypes.func,
+	    onMouseLeave: _react2.default.PropTypes.func,
+	
+	    /**
+	     * Override the inline-styles of the root element.
+	     */
+	    style: _react2.default.PropTypes.object
+	  },
+	
+	  contextTypes: {
+	    muiTheme: _react2.default.PropTypes.object
+	  },
+	
+	  //for passing default theme context to children
+	  childContextTypes: {
+	    muiTheme: _react2.default.PropTypes.object
+	  },
+	
+	  mixins: [_stylePropable2.default],
+	
+	  getInitialState: function getInitialState() {
+	    return {
+	      hovered: false,
+	      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
+	    };
+	  },
+	  getChildContext: function getChildContext() {
+	    return {
+	      muiTheme: this.state.muiTheme
+	    };
+	  },
+	
+	  //to update theme inside state whenever a new theme is passed down
+	  //from the parent / owner using context
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
+	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
+	    this.setState({ muiTheme: newMuiTheme });
+	  },
+	  _handleMouseLeave: function _handleMouseLeave(e) {
+	    // hover is needed only when a hoverColor is defined
+	    if (this.props.hoverColor !== undefined) this.setState({ hovered: false });
+	    if (this.props.onMouseLeave) {
+	      this.props.onMouseLeave(e);
+	    }
+	  },
+	  _handleMouseEnter: function _handleMouseEnter(e) {
+	    // hover is needed only when a hoverColor is defined
+	    if (this.props.hoverColor !== undefined) this.setState({ hovered: true });
+	    if (this.props.onMouseEnter) {
+	      this.props.onMouseEnter(e);
+	    }
+	  },
+	  render: function render() {
+	    var _props = this.props;
+	    var color = _props.color;
+	    var hoverColor = _props.hoverColor;
+	    var onMouseLeave = _props.onMouseLeave;
+	    var onMouseEnter = _props.onMouseEnter;
+	    var style = _props.style;
+	
+	    var other = _objectWithoutProperties(_props, ['color', 'hoverColor', 'onMouseLeave', 'onMouseEnter', 'style']);
+	
+	    var spacing = this.state.muiTheme.rawTheme.spacing;
+	    var offColor = color ? color : style && style.color ? style.color : this.state.muiTheme.rawTheme.palette.textColor;
+	    var onColor = hoverColor ? hoverColor : offColor;
+	
+	    var mergedStyles = this.prepareStyles({
+	      position: 'relative',
+	      fontSize: spacing.iconSize,
+	      display: 'inline-block',
+	      userSelect: 'none',
+	      transition: _transitions2.default.easeOut()
+	    }, style, {
+	      color: this.state.hovered ? onColor : offColor
+	    });
+	
+	    return _react2.default.createElement('span', _extends({}, other, {
+	      onMouseLeave: this._handleMouseLeave,
+	      onMouseEnter: this._handleMouseEnter,
+	      style: mergedStyles }));
+	  }
+	});
+	
+	exports.default = FontIcon;
+
+/***/ },
+/* 226 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactAddonsPureRenderMixin = __webpack_require__(183);
+	
+	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
+	
+	var _stylePropable = __webpack_require__(162);
+	
+	var _stylePropable2 = _interopRequireDefault(_stylePropable);
+	
+	var _propTypes = __webpack_require__(227);
+	
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+	
+	var _transitions = __webpack_require__(180);
+	
+	var _transitions2 = _interopRequireDefault(_transitions);
+	
+	var _lightRawTheme = __webpack_require__(198);
+	
+	var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
+	
+	var _themeManager = __webpack_require__(201);
 	
 	var _themeManager2 = _interopRequireDefault(_themeManager);
 	
@@ -26001,106 +26439,154 @@ var app =
 	exports.default = Paper;
 
 /***/ },
-/* 234 */,
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */,
-/* 287 */,
-/* 288 */,
-/* 289 */,
-/* 290 */,
-/* 291 */,
-/* 292 */,
-/* 293 */,
-/* 294 */,
-/* 295 */,
-/* 296 */,
-/* 297 */,
-/* 298 */,
-/* 299 */,
-/* 300 */,
-/* 301 */,
-/* 302 */,
-/* 303 */,
-/* 304 */,
-/* 305 */,
-/* 306 */,
-/* 307 */,
-/* 308 */,
-/* 309 */,
-/* 310 */,
-/* 311 */,
-/* 312 */,
-/* 313 */,
-/* 314 */,
-/* 315 */,
-/* 316 */,
-/* 317 */,
-/* 318 */,
-/* 319 */,
-/* 320 */,
-/* 321 */,
-/* 322 */,
-/* 323 */,
-/* 324 */,
-/* 325 */,
-/* 326 */,
-/* 327 */,
-/* 328 */,
-/* 329 */,
-/* 330 */,
-/* 331 */,
-/* 332 */,
-/* 333 */
+/* 227 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var horizontal = _react2.default.PropTypes.oneOf(['left', 'middle', 'right']);
+	var vertical = _react2.default.PropTypes.oneOf(['top', 'center', 'bottom']);
+	
+	exports.default = {
+	
+	  corners: _react2.default.PropTypes.oneOf(['bottom-left', 'bottom-right', 'top-left', 'top-right']),
+	
+	  horizontal: horizontal,
+	
+	  vertical: vertical,
+	
+	  origin: _react2.default.PropTypes.shape({
+	    horizontal: horizontal,
+	    vertical: vertical
+	  }),
+	
+	  cornersAndCenter: _react2.default.PropTypes.oneOf(['bottom-center', 'bottom-left', 'bottom-right', 'top-center', 'top-left', 'top-right']),
+	
+	  stringOrNumber: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number]),
+	
+	  zDepth: _react2.default.PropTypes.oneOf([0, 1, 2, 3, 4, 5])
+	
+	};
+
+/***/ },
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2014-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+	
+	'use strict';
+	
+	/**
+	 * Similar to invariant but only logs a warning if the condition is not met.
+	 * This can be used to log issues in development environments in critical
+	 * paths. Removing the logging code for production environments will keep the
+	 * same logic and follow the same code paths.
+	 */
+	
+	var warning = function() {};
+	
+	if (process.env.NODE_ENV !== 'production') {
+	  warning = function(condition, format, args) {
+	    var len = arguments.length;
+	    args = new Array(len > 2 ? len - 2 : 0);
+	    for (var key = 2; key < len; key++) {
+	      args[key - 2] = arguments[key];
+	    }
+	    if (format === undefined) {
+	      throw new Error(
+	        '`warning(condition, format, ...args)` requires a warning ' +
+	        'message argument'
+	      );
+	    }
+	
+	    if (format.length < 10 || (/^[s\W]*$/).test(format)) {
+	      throw new Error(
+	        'The warning format should be able to uniquely identify this ' +
+	        'warning. Please, use a more descriptive format than: ' + format
+	      );
+	    }
+	
+	    if (!condition) {
+	      var argIndex = 0;
+	      var message = 'Warning: ' +
+	        format.replace(/%s/g, function() {
+	          return args[argIndex++];
+	        });
+	      if (typeof console !== 'undefined') {
+	        console.error(message);
+	      }
+	      try {
+	        // This error was thrown as a convenience so that you can use this stack
+	        // to find the callsite that caused this warning to fire.
+	        throw new Error(message);
+	      } catch(x) {}
+	    }
+	  };
+	}
+	
+	module.exports = warning;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactAddonsPureRenderMixin = __webpack_require__(183);
+	
+	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
+	
+	var _svgIcon = __webpack_require__(230);
+	
+	var _svgIcon2 = _interopRequireDefault(_svgIcon);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ContentAdd = _react2.default.createClass({
+	  displayName: 'ContentAdd',
+	
+	  mixins: [_reactAddonsPureRenderMixin2.default],
+	
+	  render: function render() {
+	    return _react2.default.createElement(
+	      _svgIcon2.default,
+	      this.props,
+	      _react2.default.createElement('path', { d: 'M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z' })
+	    );
+	  }
+	});
+	
+	exports.default = ContentAdd;
+
+/***/ },
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26115,43 +26601,19 @@ var app =
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactDom = __webpack_require__(158);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
-	var _stylePropable = __webpack_require__(161);
+	var _stylePropable = __webpack_require__(162);
 	
 	var _stylePropable2 = _interopRequireDefault(_stylePropable);
 	
-	var _transitions = __webpack_require__(184);
+	var _transitions = __webpack_require__(180);
 	
 	var _transitions2 = _interopRequireDefault(_transitions);
 	
-	var _colorManipulator = __webpack_require__(203);
-	
-	var _colorManipulator2 = _interopRequireDefault(_colorManipulator);
-	
-	var _children = __webpack_require__(190);
-	
-	var _children2 = _interopRequireDefault(_children);
-	
-	var _typography = __webpack_require__(179);
-	
-	var _typography2 = _interopRequireDefault(_typography);
-	
-	var _enhancedButton = __webpack_require__(186);
-	
-	var _enhancedButton2 = _interopRequireDefault(_enhancedButton);
-	
-	var _paper = __webpack_require__(233);
-	
-	var _paper2 = _interopRequireDefault(_paper);
-	
-	var _lightRawTheme = __webpack_require__(201);
+	var _lightRawTheme = __webpack_require__(198);
 	
 	var _lightRawTheme2 = _interopRequireDefault(_lightRawTheme);
 	
-	var _themeManager = __webpack_require__(205);
+	var _themeManager = __webpack_require__(201);
 	
 	var _themeManager2 = _interopRequireDefault(_themeManager);
 	
@@ -26159,44 +26621,21 @@ var app =
 	
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 	
-	function validateLabel(props, propName, componentName) {
-	  if (!props.children && !props.label) {
-	    return new Error('Required prop label or children was not ' + 'specified in ' + componentName + '.');
-	  }
-	}
-	
-	var RaisedButton = _react2.default.createClass({
-	  displayName: 'RaisedButton',
+	var SvgIcon = _react2.default.createClass({
+	  displayName: 'SvgIcon',
 	
 	  propTypes: {
-	    backgroundColor: _react2.default.PropTypes.string,
 	    children: _react2.default.PropTypes.node,
-	
-	    /**
-	     * The css class name of the root element.
-	     */
-	    className: _react2.default.PropTypes.string,
-	    disabled: _react2.default.PropTypes.bool,
-	    disabledBackgroundColor: _react2.default.PropTypes.string,
-	    disabledLabelColor: _react2.default.PropTypes.string,
-	    fullWidth: _react2.default.PropTypes.bool,
-	    label: validateLabel,
-	    labelColor: _react2.default.PropTypes.string,
-	    labelPosition: _react2.default.PropTypes.oneOf(['before', 'after']),
-	    labelStyle: _react2.default.PropTypes.object,
-	    onMouseDown: _react2.default.PropTypes.func,
+	    color: _react2.default.PropTypes.string,
+	    hoverColor: _react2.default.PropTypes.string,
 	    onMouseEnter: _react2.default.PropTypes.func,
 	    onMouseLeave: _react2.default.PropTypes.func,
-	    onMouseUp: _react2.default.PropTypes.func,
-	    onTouchEnd: _react2.default.PropTypes.func,
-	    onTouchStart: _react2.default.PropTypes.func,
-	    primary: _react2.default.PropTypes.bool,
-	    secondary: _react2.default.PropTypes.bool,
 	
 	    /**
 	     * Override the inline-styles of the root element.
 	     */
-	    style: _react2.default.PropTypes.object
+	    style: _react2.default.PropTypes.object,
+	    viewBox: _react2.default.PropTypes.string
 	  },
 	
 	  contextTypes: {
@@ -26212,17 +26651,14 @@ var app =
 	
 	  getDefaultProps: function getDefaultProps() {
 	    return {
-	      labelPosition: 'before' };
+	      onMouseEnter: function onMouseEnter() {},
+	      onMouseLeave: function onMouseLeave() {},
+	      viewBox: '0 0 24 24'
+	    };
 	  },
-	
-	  // Should be after but we keep it like for now (prevent breaking changes)
 	  getInitialState: function getInitialState() {
-	    var zDepth = this.props.disabled ? 0 : 1;
 	    return {
 	      hovered: false,
-	      touched: false,
-	      initialZDepth: zDepth,
-	      zDepth: zDepth,
 	      muiTheme: this.context.muiTheme ? this.context.muiTheme : _themeManager2.default.getMuiTheme(_lightRawTheme2.default)
 	    };
 	  },
@@ -26231,240 +26667,63 @@ var app =
 	      muiTheme: this.state.muiTheme
 	    };
 	  },
+	
+	  //to update theme inside state whenever a new theme is passed down
+	  //from the parent / owner using context
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps, nextContext) {
-	    var zDepth = nextProps.disabled ? 0 : 1;
 	    var newMuiTheme = nextContext.muiTheme ? nextContext.muiTheme : this.state.muiTheme;
-	    this.setState({
-	      zDepth: zDepth,
-	      initialZDepth: zDepth,
-	      muiTheme: newMuiTheme
-	    });
-	  },
-	  _getBackgroundColor: function _getBackgroundColor() {
-	    var disabledColor = this.props.disabledBackgroundColor ? this.props.disabledBackgroundColor : this.getTheme().disabledColor;
-	
-	    return this.props.disabled ? disabledColor : this.props.backgroundColor ? this.props.backgroundColor : this.props.primary ? this.getTheme().primaryColor : this.props.secondary ? this.getTheme().secondaryColor : this.getTheme().color;
-	  },
-	  _getLabelColor: function _getLabelColor() {
-	    var disabledColor = this.props.disabledLabelColor ? this.props.disabledLabelColor : this.getTheme().disabledTextColor;
-	
-	    return this.props.disabled ? disabledColor : this.props.labelColor ? this.props.labelColor : this.props.primary ? this.getTheme().primaryTextColor : this.props.secondary ? this.getTheme().secondaryTextColor : this.getTheme().textColor;
-	  },
-	  getThemeButton: function getThemeButton() {
-	    return this.state.muiTheme.button;
-	  },
-	  getTheme: function getTheme() {
-	    return this.state.muiTheme.raisedButton;
-	  },
-	  getStyles: function getStyles() {
-	
-	    var amount = this.props.primary || this.props.secondary ? 0.4 : 0.08;
-	    var styles = {
-	      root: {
-	        display: 'inline-block',
-	        minWidth: this.props.fullWidth ? '100%' : this.getThemeButton().minWidth,
-	        height: this.getThemeButton().height,
-	        transition: _transitions2.default.easeOut()
-	      },
-	      container: {
-	        position: 'relative',
-	        height: '100%',
-	        width: '100%',
-	        padding: 0,
-	        overflow: 'hidden',
-	        borderRadius: 2,
-	        transition: _transitions2.default.easeOut(),
-	        backgroundColor: this._getBackgroundColor(),
-	        /*
-	          This is need so that ripples do not bleed
-	          past border radius.
-	          See: http://stackoverflow.com/questions/17298739/
-	            css-overflow-hidden-not-working-in-chrome-when-parent-has-border-radius-and-chil
-	         */
-	        transform: 'translate3d(0, 0, 0)'
-	      },
-	      label: {
-	        position: 'relative',
-	        opacity: 1,
-	        fontSize: '14px',
-	        letterSpacing: 0,
-	        textTransform: this.getTheme().textTransform ? this.getTheme().textTransform : this.getThemeButton().textTransform ? this.getThemeButton().textTransform : 'uppercase',
-	        fontWeight: _typography2.default.fontWeightMedium,
-	        margin: 0,
-	        padding: '0px ' + this.state.muiTheme.rawTheme.spacing.desktopGutterLess + 'px',
-	        userSelect: 'none',
-	        lineHeight: this.props.style && this.props.style.height ? this.props.style.height : this.getThemeButton().height + 'px',
-	        color: this._getLabelColor()
-	      },
-	      overlay: {
-	        transition: _transitions2.default.easeOut(),
-	        top: 0
-	      },
-	      overlayWhenHovered: {
-	        backgroundColor: _colorManipulator2.default.fade(this._getLabelColor(), amount)
-	      }
-	    };
-	    return styles;
-	  },
-	  _handleMouseDown: function _handleMouseDown(e) {
-	    //only listen to left clicks
-	    if (e.button === 0) {
-	      this.setState({ zDepth: this.state.initialZDepth + 1 });
-	    }
-	    if (this.props.onMouseDown) this.props.onMouseDown(e);
-	  },
-	  _handleMouseUp: function _handleMouseUp(e) {
-	    this.setState({ zDepth: this.state.initialZDepth });
-	    if (this.props.onMouseUp) this.props.onMouseUp(e);
+	    this.setState({ muiTheme: newMuiTheme });
 	  },
 	  _handleMouseLeave: function _handleMouseLeave(e) {
-	    if (!this.refs.container.isKeyboardFocused()) this.setState({ zDepth: this.state.initialZDepth, hovered: false });
-	    if (this.props.onMouseLeave) this.props.onMouseLeave(e);
+	    this.setState({ hovered: false });
+	    this.props.onMouseLeave(e);
 	  },
 	  _handleMouseEnter: function _handleMouseEnter(e) {
-	    if (!this.refs.container.isKeyboardFocused() && !this.state.touch) {
-	      this.setState({ hovered: true });
-	    }
-	    if (this.props.onMouseEnter) this.props.onMouseEnter(e);
-	  },
-	  _handleTouchStart: function _handleTouchStart(e) {
-	    this.setState({
-	      touch: true,
-	      zDepth: this.state.initialZDepth + 1
-	    });
-	    if (this.props.onTouchStart) this.props.onTouchStart(e);
-	  },
-	  _handleTouchEnd: function _handleTouchEnd(e) {
-	    this.setState({ zDepth: this.state.initialZDepth });
-	    if (this.props.onTouchEnd) this.props.onTouchEnd(e);
-	  },
-	  _handleKeyboardFocus: function _handleKeyboardFocus(e, keyboardFocused) {
-	    if (keyboardFocused && !this.props.disabled) {
-	      this.setState({ zDepth: this.state.initialZDepth + 1 });
-	      var amount = this.props.primary || this.props.secondary ? 0.4 : 0.08;
-	      _reactDom2.default.findDOMNode(this.refs.overlay).style.backgroundColor = _colorManipulator2.default.fade(this.prepareStyles(this.getStyles().label, this.props.labelStyle).color, amount);
-	    } else if (!this.state.hovered) {
-	      this.setState({ zDepth: this.state.initialZDepth });
-	      _reactDom2.default.findDOMNode(this.refs.overlay).style.backgroundColor = 'transparent';
-	    }
+	    this.setState({ hovered: true });
+	    this.props.onMouseEnter(e);
 	  },
 	  render: function render() {
 	    var _props = this.props;
 	    var children = _props.children;
-	    var disabled = _props.disabled;
-	    var label = _props.label;
-	    var labelPosition = _props.labelPosition;
-	    var labelStyle = _props.labelStyle;
-	    var primary = _props.primary;
-	    var secondary = _props.secondary;
+	    var color = _props.color;
+	    var hoverColor = _props.hoverColor;
+	    var onMouseEnter = _props.onMouseEnter;
+	    var onMouseLeave = _props.onMouseLeave;
+	    var style = _props.style;
+	    var viewBox = _props.viewBox;
 	
-	    var other = _objectWithoutProperties(_props, ['children', 'disabled', 'label', 'labelPosition', 'labelStyle', 'primary', 'secondary']);
+	    var other = _objectWithoutProperties(_props, ['children', 'color', 'hoverColor', 'onMouseEnter', 'onMouseLeave', 'style', 'viewBox']);
 	
-	    var styles = this.getStyles();
+	    var offColor = color ? color : style && style.fill ? style.fill : this.state.muiTheme.rawTheme.palette.textColor;
+	    var onColor = hoverColor ? hoverColor : offColor;
 	
-	    var labelElement = undefined;
-	    if (label) {
-	      labelElement = _react2.default.createElement(
-	        'span',
-	        { style: this.prepareStyles(styles.label, labelStyle) },
-	        label
-	      );
-	    }
+	    var mergedStyles = this.prepareStyles({
+	      display: 'inline-block',
+	      height: 24,
+	      width: 24,
+	      userSelect: 'none',
+	      transition: _transitions2.default.easeOut()
+	    }, style, {
+	      // Make sure our fill color overrides fill provided in props.style
+	      fill: this.state.hovered ? onColor : offColor
+	    });
 	
-	    var rippleColor = styles.label.color;
-	    var rippleOpacity = !(primary || secondary) ? 0.1 : 0.16;
-	
-	    var buttonEventHandlers = disabled ? null : {
-	      onMouseDown: this._handleMouseDown,
-	      onMouseUp: this._handleMouseUp,
-	      onMouseLeave: this._handleMouseLeave,
+	    var events = hoverColor ? {
 	      onMouseEnter: this._handleMouseEnter,
-	      onTouchStart: this._handleTouchStart,
-	      onTouchEnd: this._handleTouchEnd,
-	      onKeyboardFocus: this._handleKeyboardFocus
-	    };
-	
-	    // Place label before or after children.
-	    var childrenFragment = labelPosition === 'before' ? { labelElement: labelElement, children: children } : { children: children, labelElement: labelElement };
-	    var enhancedButtonChildren = _children2.default.create(childrenFragment);
+	      onMouseLeave: this._handleMouseLeave
+	    } : {};
 	
 	    return _react2.default.createElement(
-	      _paper2.default,
-	      {
-	        style: this.mergeStyles(styles.root, this.props.style),
-	        zDepth: this.state.zDepth },
-	      _react2.default.createElement(
-	        _enhancedButton2.default,
-	        _extends({}, other, buttonEventHandlers, {
-	          ref: 'container',
-	          disabled: disabled,
-	          style: this.mergeStyles(styles.container),
-	          focusRippleColor: rippleColor,
-	          touchRippleColor: rippleColor,
-	          focusRippleOpacity: rippleOpacity,
-	          touchRippleOpacity: rippleOpacity }),
-	        _react2.default.createElement(
-	          'div',
-	          { ref: 'overlay', style: this.prepareStyles(styles.overlay, this.state.hovered && !this.props.disabled && styles.overlayWhenHovered) },
-	          enhancedButtonChildren
-	        )
-	      )
+	      'svg',
+	      _extends({}, other, events, {
+	        style: mergedStyles,
+	        viewBox: viewBox }),
+	      children
 	    );
 	  }
 	});
 	
-	exports.default = RaisedButton;
-
-/***/ },
-/* 334 */,
-/* 335 */,
-/* 336 */,
-/* 337 */,
-/* 338 */,
-/* 339 */,
-/* 340 */,
-/* 341 */,
-/* 342 */,
-/* 343 */,
-/* 344 */,
-/* 345 */,
-/* 346 */,
-/* 347 */,
-/* 348 */,
-/* 349 */,
-/* 350 */,
-/* 351 */,
-/* 352 */,
-/* 353 */,
-/* 354 */,
-/* 355 */,
-/* 356 */,
-/* 357 */,
-/* 358 */,
-/* 359 */,
-/* 360 */,
-/* 361 */,
-/* 362 */,
-/* 363 */,
-/* 364 */,
-/* 365 */,
-/* 366 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.bindMethods = bindMethods;
-	function bindMethods(component, names) {
-	    if (_.isString(names)) {
-	        names = [names];
-	    }
-	    names.forEach(function (name) {
-	        return component[name] = component[name].bind(component);
-	    });
-	}
+	exports.default = SvgIcon;
 
 /***/ }
 /******/ ]);
