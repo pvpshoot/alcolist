@@ -1,3 +1,5 @@
 .idea/
 node_modules/
+build/js/
 *.map
+.DS_Store
