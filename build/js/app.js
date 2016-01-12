@@ -97,7 +97,7 @@ var app =
 	    return App;
 	}(_react2.default.Component);
 	
-	_reactDom2.default.render(_react2.default.createElement(App, null), document.body);
+	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('application'));
 
 /***/ },
 /* 1 */
@@ -20076,6 +20076,7 @@ var app =
 	});
 	
 	exports.default = FloatingActionButton;
+	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
@@ -20136,6 +20137,7 @@ var app =
 	    return _styles2.default.prepareStyles.apply(_styles2.default, [this.state && this.state.muiTheme || this.context.muiTheme].concat([].slice.apply(arguments)));
 	  }
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 163 */
@@ -20184,6 +20186,7 @@ var app =
 	    return (0, _reactAddonsUpdate2.default)(array, { $splice: [[0, 1]] });
 	  }
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 164 */
@@ -20423,6 +20426,7 @@ var app =
 	    return _autoPrefix2.default.all(flipped);
 	  }
 	};
+	module.exports = exports['default'];
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
@@ -20503,6 +20507,7 @@ var app =
 	    return prefixes ? prefixes[0] : key;
 	  }
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 168 */
@@ -21526,6 +21531,7 @@ var app =
 	    return property + ' ' + duration + ' ' + easeFunction + ' ' + delay;
 	  }
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 181 */
@@ -21708,6 +21714,7 @@ var app =
 	    }
 	  }
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 182 */
@@ -22046,6 +22053,7 @@ var app =
 	});
 	
 	exports.default = EnhancedButton;
+	module.exports = exports['default'];
 
 /***/ },
 /* 183 */
@@ -22429,6 +22437,7 @@ var app =
 	  darkWhite: 'rgba(255, 255, 255, 0.87)',
 	  lightWhite: 'rgba(255, 255, 255, 0.54)'
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 187 */
@@ -22483,6 +22492,7 @@ var app =
 	    }) : children;
 	  }
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 188 */
@@ -22603,6 +22613,7 @@ var app =
 	    return ['keydown', 'keypress', 'keyup'].indexOf(e.type) !== -1;
 	  }
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 191 */
@@ -22623,6 +22634,7 @@ var app =
 	  TAB: 9,
 	  UP: 38
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 192 */
@@ -22780,6 +22792,7 @@ var app =
 	});
 	
 	exports.default = FocusRipple;
+	module.exports = exports['default'];
 
 /***/ },
 /* 193 */
@@ -22915,6 +22928,7 @@ var app =
 	});
 	
 	exports.default = ScaleIn;
+	module.exports = exports['default'];
 
 /***/ },
 /* 194 */
@@ -23402,6 +23416,7 @@ var app =
 	});
 	
 	exports.default = ScaleInChild;
+	module.exports = exports['default'];
 
 /***/ },
 /* 198 */
@@ -23415,12 +23430,21 @@ var app =
 	
 	var _lightBaseTheme = __webpack_require__(199);
 	
-	Object.defineProperty(exports, 'default', {
-	  enumerable: true,
-	  get: function get() {
-	    return _lightBaseTheme.default;
-	  }
-	});
+	var _lightBaseTheme2 = _interopRequireDefault(_lightBaseTheme);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _lightBaseTheme2.default;
+	
+	// import deprecatedExport from '../../utils/deprecatedExport';
+	
+	// export default deprecatedExport(
+	//   lightBaseTheme,
+	//   'material-ui/lib/styles/raw-themes/light-raw-theme',
+	//   'material-ui/lib/styles/baseThemes/lightBaseTheme'
+	// );
+	
+	module.exports = exports['default'];
 
 /***/ },
 /* 199 */
@@ -23471,6 +23495,7 @@ var app =
 	    clockCircleColor: _colorManipulator2.default.fade(_colors2.default.darkBlack, 0.07)
 	  }
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 200 */
@@ -23495,6 +23520,7 @@ var app =
 	  desktopSubheaderHeight: 48,
 	  desktopToolbarHeight: 56
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 201 */
@@ -23539,6 +23565,8 @@ var app =
 	//  'material-ui/lib/styles/theme-manager',
 	//  'material-ui/lib/styles/themeManager'
 	//);
+	
+	module.exports = exports['default'];
 
 /***/ },
 /* 202 */
@@ -23546,12 +23574,11 @@ var app =
 
 	'use strict';
 	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	
-	function _typeof(obj) { return obj && typeof Symbol !== "undefined" && obj.constructor === Symbol ? "symbol" : typeof obj; }
-	
 	function isObject(obj) {
 	  return (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object' && obj !== null;
 	}
@@ -23599,6 +23626,7 @@ var app =
 	};
 	
 	exports.default = extend;
+	module.exports = exports['default'];
 
 /***/ },
 /* 203 */
@@ -23802,7 +23830,8 @@ var app =
 	      stripeColor: _colorManipulator2.default.lighten(palette.primary1Color, 0.55),
 	      selectedColor: palette.borderColor,
 	      textColor: palette.textColor,
-	      borderColor: palette.borderColor
+	      borderColor: palette.borderColor,
+	      height: 48
 	    },
 	    tableRowColumn: {
 	      height: 48,
@@ -23855,6 +23884,7 @@ var app =
 	    }
 	  }, muiTheme);
 	}
+	module.exports = exports['default'];
 
 /***/ },
 /* 204 */
@@ -25782,6 +25812,7 @@ var app =
 	  snackbar: 2900,
 	  tooltip: 3000
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 222 */
@@ -25976,6 +26007,7 @@ var app =
 	});
 	
 	exports.default = TouchRipple;
+	module.exports = exports['default'];
 
 /***/ },
 /* 223 */
@@ -26052,6 +26084,7 @@ var app =
 	    el.style.transition = originalTransition;
 	  }
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 224 */
@@ -26178,6 +26211,7 @@ var app =
 	});
 	
 	exports.default = CircleRipple;
+	module.exports = exports['default'];
 
 /***/ },
 /* 225 */
@@ -26219,9 +26253,25 @@ var app =
 	  displayName: 'FontIcon',
 	
 	  propTypes: {
+	    /**
+	     * This is the font color of the font icon. If not specified,
+	     * this component will default to muiTheme.palette.textColor.
+	     */
 	    color: _react2.default.PropTypes.string,
+	
+	    /**
+	     * This is the icon color when the mouse hovers over the icon.
+	     */
 	    hoverColor: _react2.default.PropTypes.string,
+	
+	    /**
+	     * Function called when mouse enters this element.
+	     */
 	    onMouseEnter: _react2.default.PropTypes.func,
+	
+	    /**
+	     * Function called when mouse leaves this element.
+	     */
 	    onMouseLeave: _react2.default.PropTypes.func,
 	
 	    /**
@@ -26241,6 +26291,12 @@ var app =
 	
 	  mixins: [_stylePropable2.default],
 	
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      onMouseEnter: function onMouseEnter() {},
+	      onMouseLeave: function onMouseLeave() {}
+	    };
+	  },
 	  getInitialState: function getInitialState() {
 	    return {
 	      hovered: false,
@@ -26305,6 +26361,7 @@ var app =
 	});
 	
 	exports.default = FontIcon;
+	module.exports = exports['default'];
 
 /***/ },
 /* 226 */
@@ -26354,15 +26411,35 @@ var app =
 	  displayName: 'Paper',
 	
 	  propTypes: {
+	    /**
+	     * Children passed into the paper element.
+	     */
 	    children: _react2.default.PropTypes.node,
+	
+	    /**
+	     * Set to true to generate a circlular paper container.
+	     */
 	    circle: _react2.default.PropTypes.bool,
+	
+	    /**
+	     * By default, the paper container will have a border radius.
+	     * Set this to false to generate a container with sharp corners.
+	     */
 	    rounded: _react2.default.PropTypes.bool,
 	
 	    /**
 	     * Override the inline-styles of the root element.
 	     */
 	    style: _react2.default.PropTypes.object,
+	
+	    /**
+	     * Set to false to disable CSS transitions for the paper element.
+	     */
 	    transitionEnabled: _react2.default.PropTypes.bool,
+	
+	    /**
+	     * This number represents the zDepth of the paper shadow.
+	     */
 	    zDepth: _propTypes2.default.zDepth
 	  },
 	
@@ -26437,6 +26514,7 @@ var app =
 	});
 	
 	exports.default = Paper;
+	module.exports = exports['default'];
 
 /***/ },
 /* 227 */
@@ -26477,6 +26555,7 @@ var app =
 	  zDepth: _react2.default.PropTypes.oneOf([0, 1, 2, 3, 4, 5])
 	
 	};
+	module.exports = exports['default'];
 
 /***/ },
 /* 228 */
@@ -26584,6 +26663,7 @@ var app =
 	});
 	
 	exports.default = ContentAdd;
+	module.exports = exports['default'];
 
 /***/ },
 /* 230 */
@@ -26625,16 +26705,46 @@ var app =
 	  displayName: 'SvgIcon',
 	
 	  propTypes: {
+	    /**
+	     * Elements passed into the SVG Icon.
+	     */
 	    children: _react2.default.PropTypes.node,
+	
+	    /**
+	     * This is the fill color of the svg icon.
+	     * If not specified, this component will default
+	     * to muiTheme.palette.textColor.
+	     */
 	    color: _react2.default.PropTypes.string,
+	
+	    /**
+	     * This is the icon color when the mouse hovers over the icon.
+	     */
 	    hoverColor: _react2.default.PropTypes.string,
+	
+	    /**
+	     * Function called when mouse enters this element.
+	     */
 	    onMouseEnter: _react2.default.PropTypes.func,
+	
+	    /**
+	     * Function called when mouse leaves this element.
+	     */
 	    onMouseLeave: _react2.default.PropTypes.func,
 	
 	    /**
 	     * Override the inline-styles of the root element.
 	     */
 	    style: _react2.default.PropTypes.object,
+	
+	    /**
+	     * Allows you to redifine what the coordinates
+	     * without units mean inside an svg element. For example,
+	     * if the SVG element is 500(width) by 200(height), and you
+	     * pass viewBox="0 0 50 20", this means that the coordinates inside
+	     * the svg will go from the top left corner (0,0) to bottom right (50,20)
+	     * and each unit will be worth 10px.
+	     */
 	    viewBox: _react2.default.PropTypes.string
 	  },
 	
@@ -26724,6 +26834,7 @@ var app =
 	});
 	
 	exports.default = SvgIcon;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);
