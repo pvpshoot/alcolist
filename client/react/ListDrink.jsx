@@ -41,21 +41,20 @@ class ListDrink extends React.Component {
         this.loadDataFromFirebase();
     }
     render() {
-        var drinkNodes = _(this.state.listDrinks)
-            .keys()
-            .map((k, i) => {
-                let drink = this.state.listDrinks[k];
-                console.log(drink)
-                return (
-                    <Drink drink={drink} key={i}/>
-                )
-            })
-            .value();
-        console.log(drinkNodes);
+        if(this.state.listDrinks !== null){
+            var groupped = _.groupBy(this.state.listDrinks, (n)=> {return [n.type].sort()})
+              var nodes = _(groupped).keys().map((k, i) => {
+                var nod = groupped[k].map((hit, j) => {
+                    return hit.name
+                })
+                return (<Drink header={k} drink={nod} key={i}/>)
+            }).value();
+        }
+
 
         return(
                 <Card>
-                    <Drink />
+                    {nodes}
                     <Divider inset={true} />
                 </Card>
         )
