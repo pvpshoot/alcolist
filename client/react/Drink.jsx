@@ -1,27 +1,29 @@
 import React from 'react';
 import mui from 'material-ui';
-import SocialPeople from 'material-ui/lib/svg-icons/social/people';
+import DrinkItem from './DrinkItem.jsx';
+
 
 var {
-    List,
-    ListItem,
-    Avatar
+    List
     } = mui;
 
 class Drink extends React.Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
     }
 
     render() {
-
+        let drinkList = null;
+        if (this.props.drink !== null) {
+            drinkList = _.values(this.props.drink).map((drink, i)=> {
+                return (
+                    <DrinkItem drinkItem={drink} key={i}/>
+                )
+            })
+        }
         return (
-            <List subheader="BEER" insetSubheader={true} >
-                <ListItem
-                    leftAvatar={<Avatar icon={<SocialPeople />} />}
-                    rightAvatar={<Avatar>4</Avatar>}
-                    primaryText="Мохнатый шмель"
-                    secondaryText="Jan 9, 2016" />
+            <List subheader={this.props.header} insetSubheader={true} >
+                {drinkList}
             </List>
         )
     }
