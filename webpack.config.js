@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 var WebpackErrorNotificationPlugin = require('webpack-error-notification');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     watch: true,
@@ -32,7 +33,8 @@ module.exports = {
             server: { baseDir: ['build']},
             open: false,
             ghostMode: false,
-        })
+        }),
+        new ExtractTextPlugin('./build/css/bundle.css')
     ],
     module: {
         loaders: [
@@ -50,8 +52,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                include: path.join(__dirname, 'src'),
-                loader: 'style!css!sass'
+                loader: ExtractTextPlugin.extract('style-loader','css-loader!sass')
             }
         ]
     },

@@ -5,6 +5,8 @@ import Mui from 'material-ui';
 import bindMethods from 'service';
 import RaisedButton from 'material-ui/lib/raised-button';
 import TextField from 'material-ui/lib/text-field';
+import 'style.scss'
+
 
  class LoginForm extends React.Component {
     constructor(props) {
