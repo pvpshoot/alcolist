@@ -107,33 +107,29 @@ var test =
 	                { className: 'loginForm' },
 	                _react2.default.createElement(
 	                    'h1',
-	                    null,
+	                    { className: 'loginForm__header' },
 	                    'Авторизация'
 	                ),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'loginForm__item' },
-	                    _react2.default.createElement(_textField2.default, {
-	                        hintText: 'логин',
+	                    _react2.default.createElement(_raisedButton2.default, { label: 'Twitter',
+	                        backgroundColor: '#0084B4',
 	                        style: {
-	                            width: '100%'
-	                        } })
+	                            width: '200px',
+	                            marginBottom: '20px'
+	                        },
+	                        primary: true })
 	                ),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'loginForm__item' },
-	                    _react2.default.createElement(_textField2.default, {
-	                        hintText: 'пароль',
-	                        floatingLabelText: 'пароль',
-	                        type: 'password',
+	                    _react2.default.createElement(_raisedButton2.default, { label: 'Facebook',
+	                        backgroundColor: '#4e69a2',
 	                        style: {
-	                            width: '100%'
-	                        } })
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'loginForm__item' },
-	                    _react2.default.createElement(_raisedButton2.default, { label: 'Войти', primary: true })
+	                            width: '200px'
+	                        },
+	                        primary: true })
 	                )
 	            );
 	        }

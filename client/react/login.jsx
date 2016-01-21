@@ -18,25 +18,23 @@ import 'style.scss'
     render() {
         return (
             <div className="loginForm">
-                <h1>Авторизация</h1>
+                <h1 className="loginForm__header">Авторизация</h1>
                 <div className="loginForm__item">
-                    <TextField
-                      hintText="логин"
+                    <RaisedButton label="Twitter"
+                      backgroundColor="#0084B4"
                       style={{
-                        width: '100%',
-                      }} />
+                        width: '200px',
+                        marginBottom: '20px'
+                      }} 
+                      primary={true} />
                 </div>
                 <div className="loginForm__item">
-                    <TextField
-                      hintText="пароль"
-                      floatingLabelText="пароль"
-                      type="password"
+                    <RaisedButton label="Facebook"
+                      backgroundColor="#4e69a2"
                       style={{
-                        width: '100%',
-                      }}  />
-                </div>
-                <div className="loginForm__item">
-                    <RaisedButton label="Войти" primary={true} />
+                        width: '200px'
+                      }} 
+                      primary={true} />
                 </div>
             </div>
             );
