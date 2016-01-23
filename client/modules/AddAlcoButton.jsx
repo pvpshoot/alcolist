@@ -12,8 +12,8 @@ export class AddAlcoButton extends React.Component {
     }
     componentDidMount() {}
     render() {
-         //TODO УБРАТЬ ИНДАЙН СТИЛИ
-        return <FloatingActionButton backgroundColor={Colors.teal500} className="AddAlcoButton" style={{position: 'fixed', bottom:'20px', right:'20px'}}>
+         //TODO УБРАТЬ ИНЛАЙН СТИЛИ
+        return <FloatingActionButton backgroundColor={Colors.teal500} className="AddAlcoButton" style={{position: 'fixed', bottom:'20px', right:'60px'}}>
             <ActionAdd />
         </FloatingActionButton>;
     }
