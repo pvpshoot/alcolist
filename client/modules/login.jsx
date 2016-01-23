@@ -8,37 +8,38 @@ import TextField from 'material-ui/lib/text-field';
 import 'style.scss'
 
 
- class LoginForm extends React.Component {
+export default class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
         //bindMethods(this, ['']);
     }
-    componentDidMount() {}
+
+    componentDidMount() {
+    }
+
     render() {
         return (
             <div className="loginForm">
                 <h1 className="loginForm__header">Авторизация</h1>
                 <div className="loginForm__item">
                     <RaisedButton label="Twitter"
-                      backgroundColor="#0084B4"
-                      style={{
+                                  backgroundColor="#0084B4"
+                                  style={{
                         width: '200px',
                         marginBottom: '20px'
-                      }} 
-                      primary={true} />
+                      }}
+                                  primary={true}/>
                 </div>
                 <div className="loginForm__item">
                     <RaisedButton label="Facebook"
-                      backgroundColor="#4e69a2"
-                      style={{
+                                  backgroundColor="#4e69a2"
+                                  style={{
                         width: '200px'
-                      }} 
-                      primary={true} />
+                      }}
+                                  primary={true}/>
                 </div>
             </div>
-            );
+        );
     }
 }
-
-ReactDOM.render(<LoginForm />, document.body);

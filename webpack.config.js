@@ -13,7 +13,7 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         app: './client/react/app.jsx',
-        test: './client/react/login.jsx'
+        //test: './client/react/login.jsx'
 
     },
     output: {
@@ -28,7 +28,7 @@ module.exports = {
             // browse to http://localhost:3000/ during development,
             // ./public directory is being served
             host: 'localhost',
-            index: "app.htm",
+            index: "app.html",
             port: 8080,
             server: { baseDir: ['build']},
             open: false,
@@ -62,4 +62,4 @@ module.exports = {
             'client/modules'
         ]
     }
-}
+};
