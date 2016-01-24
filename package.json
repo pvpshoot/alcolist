@@ -37,5 +37,8 @@
     "webpack-dev-server": "^1.14.0",
     "webpack-error-notification": "^0.1.6",
     "webpack-sources": "^0.1.0"
+  },
+  "dependencies": {
+    "react-tap-event-plugin": "^0.2.1"
   }
 }
