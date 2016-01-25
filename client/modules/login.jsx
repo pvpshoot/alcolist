@@ -8,18 +8,41 @@ import TextField from 'material-ui/lib/text-field';
 import 'style.scss'
 
 
+
+
+
+
+
 export default class LoginForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
-        bindMethods(this, ['twitterLogin']);
+        this.state = {
+            ref: new Firebase(this.props.bd)
+        };
+        bindMethods(this, ['twitterLogin','checkLogged']);
     }
+    
 
     componentDidMount() {
+        this.checkLogged();
+    }
+    checkLogged(){
+        let authData = this.state.ref.getAuth();
+        return authData? this.props.loginAction(authData.twitter.username) : null;
     }
     twitterLogin(e){
         e.preventDefault();
-        alert('GO');
+        console.log(this);
+        this.state.ref.authWithOAuthPopup("twitter", (error, authData)=> {
+            if (error) {
+                alert('Error');
+                console.log("Login Failed!", error);
+            } else {
+                console.log("Authenticated successfully with payload:", authData);
+                this.props.loginAction(authData.twitter.username);
+            }
+            return
+        });
     }
 
     render() {

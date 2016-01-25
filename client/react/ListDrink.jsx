@@ -24,7 +24,6 @@ class ListDrink extends React.Component {
         super();
         this.state = {
             listDrinks: null,
-            dataBase: `${this.props.dataBase}/alcolist`,
         }
     }
 

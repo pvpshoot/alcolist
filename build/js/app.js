@@ -71,8 +71,6 @@ var app =
 	
 	var _service = __webpack_require__(375);
 	
-	var _service2 = _interopRequireDefault(_service);
-	
 	var _AddAlcoButton = __webpack_require__(376);
 	
 	var _login = __webpack_require__(378);
@@ -97,13 +95,19 @@ var app =
 	
 	        _this.state = {
 	            logged: false,
-	            dataBase: new Firebase('https://alcolist.firebaseio.com/')
+	            loginName: '',
+	            dataBase: 'https://alcolist.firebaseio.com/'
 	        };
-	        //bindMethods(this, ['']);
+	        (0, _service.bindMethods)(_this, ['setLoggin']);
 	        return _this;
 	    }
 	
 	    _createClass(MyApp, [{
+	        key: 'setLoggin',
+	        value: function setLoggin(data) {
+	            return !!data ? this.setState({ loginName: data, logged: true }) : null;
+	        }
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {}
 	    }, {
@@ -113,7 +117,7 @@ var app =
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                !this.state.logged ? _react2.default.createElement(_login2.default, null) : _react2.default.createElement(
+	                !this.state.logged ? _react2.default.createElement(_login2.default, { bd: this.state.dataBase, loginAction: this.setLoggin }) : _react2.default.createElement(
 	                    'div',
 	                    null,
 	                    _react2.default.createElement(_ListDrink2.default, { dataBase: this.dataBase }),
@@ -51724,8 +51728,7 @@ var app =
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ListDrink).call(this));
 	
 	        _this.state = {
-	            listDrinks: null,
-	            dataBase: _this.props.dataBase + '/alcolist'
+	            listDrinks: null
 	        };
 	        return _this;
 	    }
@@ -64809,19 +64812,41 @@ var app =
 	
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LoginForm).call(this, props));
 	
-	        _this.state = {};
-	        (0, _service.bindMethods)(_this, ['twitterLogin']);
+	        _this.state = {
+	            ref: new Firebase(_this.props.bd)
+	        };
+	        (0, _service.bindMethods)(_this, ['twitterLogin', 'checkLogged']);
 	        return _this;
 	    }
 	
 	    _createClass(LoginForm, [{
 	        key: 'componentDidMount',
-	        value: function componentDidMount() {}
+	        value: function componentDidMount() {
+	            this.checkLogged();
+	        }
+	    }, {
+	        key: 'checkLogged',
+	        value: function checkLogged() {
+	            var authData = this.state.ref.getAuth();
+	            return authData ? this.props.loginAction(authData.twitter.username) : null;
+	        }
 	    }, {
 	        key: 'twitterLogin',
 	        value: function twitterLogin(e) {
+	            var _this2 = this;
+	
 	            e.preventDefault();
-	            alert('GO');
+	            console.log(this);
+	            this.state.ref.authWithOAuthPopup("twitter", function (error, authData) {
+	                if (error) {
+	                    alert('Error');
+	                    console.log("Login Failed!", error);
+	                } else {
+	                    console.log("Authenticated successfully with payload:", authData);
+	                    _this2.props.loginAction(authData.twitter.username);
+	                }
+	                return;
+	            });
 	        }
 	    }, {
 	        key: 'render',

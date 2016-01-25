@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Mui from 'material-ui';
 import TableDrink from './TableDrink.jsx';
 import ListDrink from './ListDrink.jsx';
-import bindMethods from 'service';
+import {bindMethods} from 'service';
 import {AddAlcoButton} from 'AddAlcoButton.jsx';
 import LoginForm from 'login.jsx'
 
@@ -14,15 +14,19 @@ class MyApp extends React.Component {
        super(props);
        this.state = {
            logged: false,
-           dataBase: new Firebase('https://alcolist.firebaseio.com/'),
+           loginName: '',
+           dataBase: 'https://alcolist.firebaseio.com/',
        };
-       //bindMethods(this, ['']);
+       bindMethods(this, ['setLoggin']);
    }
+    setLoggin(data){
+        return !!data? this.setState({loginName: data, logged: true}) : null;
+    }
    componentDidMount() {}
    render() {
 
        return <div>
-           {!this.state.logged ? <LoginForm/>: <div>
+           {!this.state.logged ? <LoginForm  bd={this.state.dataBase} loginAction={this.setLoggin}/>: <div>
                <ListDrink dataBase={this.dataBase}/>
                <AddAlcoButton/>
            </div>}
