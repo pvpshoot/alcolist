@@ -28,7 +28,8 @@ export default class LoginForm extends React.Component {
     }
     checkLogged(){
         let authData = this.state.ref.getAuth();
-        return authData? this.props.loginAction(authData.twitter.username) : null;
+        console.log(authData);
+        return authData? this.props.loginAction(authData.provider=='twitter'? authData.twitter.username : authData.facebook.displayName) : null;
     }
     twitterLogin(e){
         e.preventDefault();

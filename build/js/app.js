@@ -64828,7 +64828,8 @@ var app =
 	        key: 'checkLogged',
 	        value: function checkLogged() {
 	            var authData = this.state.ref.getAuth();
-	            return authData ? this.props.loginAction(authData.twitter.username) : null;
+	            console.log(authData);
+	            return authData ? this.props.loginAction(authData.provider == 'twitter' ? authData.twitter.username : authData.facebook.displayName) : null;
 	        }
 	    }, {
 	        key: 'twitterLogin',
