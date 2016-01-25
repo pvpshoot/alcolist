@@ -64815,7 +64815,7 @@ var app =
 	        _this.state = {
 	            ref: new Firebase(_this.props.bd)
 	        };
-	        (0, _service.bindMethods)(_this, ['twitterLogin', 'checkLogged']);
+	        (0, _service.bindMethods)(_this, ['twitterLogin', 'checkLogged', 'facebookLogin']);
 	        return _this;
 	    }
 	
@@ -64836,14 +64836,28 @@ var app =
 	            var _this2 = this;
 	
 	            e.preventDefault();
-	            console.log(this);
 	            this.state.ref.authWithOAuthPopup("twitter", function (error, authData) {
 	                if (error) {
 	                    alert('Error');
 	                    console.log("Login Failed!", error);
 	                } else {
-	                    console.log("Authenticated successfully with payload:", authData);
 	                    _this2.props.loginAction(authData.twitter.username);
+	                }
+	                return;
+	            });
+	        }
+	    }, {
+	        key: 'facebookLogin',
+	        value: function facebookLogin(e) {
+	            var _this3 = this;
+	
+	            e.preventDefault();
+	            this.state.ref.authWithOAuthPopup("facebook", function (error, authData) {
+	                if (error) {
+	                    alert('Error');
+	                    console.log("Login Failed!", error);
+	                } else {
+	                    _this3.props.loginAction(authData.facebook.displayName);
 	                }
 	                return;
 	            });
@@ -64880,7 +64894,7 @@ var app =
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'loginForm__item' },
-	                    _react2.default.createElement(_raisedButton2.default, { label: 'Facebook',
+	                    _react2.default.createElement(_raisedButton2.default, { label: 'Facebook', onClick: this.facebookLogin,
 	                        backgroundColor: '#4e69a2',
 	                        style: {
 	                            width: '200px'
