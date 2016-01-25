@@ -51739,7 +51739,7 @@ var app =
 	            var _this2 = this;
 	
 	            return new Promise(function (resolve, resject) {
-	                _this2.state.dataBase.once("value", function (data) {
+	                firebaseRef.once("value", function (data) {
 	                    var drinks = data.val();
 	                    resolve(drinks);
 	                    _this2.setState({ listDrinks: drinks });

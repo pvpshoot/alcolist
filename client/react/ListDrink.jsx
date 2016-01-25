@@ -29,9 +29,9 @@ class ListDrink extends React.Component {
 
     loadDataFromFirebase() {
         return new Promise((resolve, resject) => {
-            this.state.dataBase.once("value", (data)=> {
+            firebaseRef.once("value", (data)=> {
                 var drinks = data.val();
-                resolve(drinks)
+                resolve(drinks);
                 this.setState({listDrinks: drinks})
             })
         })
