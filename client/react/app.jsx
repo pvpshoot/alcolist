@@ -13,7 +13,8 @@ class MyApp extends React.Component {
    constructor(props) {
        super(props);
        this.state = {
-           logged: false
+           logged: false,
+           dataBase: new Firebase('https://alcolist.firebaseio.com/'),
        };
        //bindMethods(this, ['']);
    }
@@ -21,8 +22,8 @@ class MyApp extends React.Component {
    render() {
 
        return <div>
-           {this.state.logged ? <LoginForm/>: <div>
-               <ListDrink/>
+           {!this.state.logged ? <LoginForm/>: <div>
+               <ListDrink dataBase={this.dataBase}/>
                <AddAlcoButton/>
            </div>}
        </div>;
@@ -30,7 +31,7 @@ class MyApp extends React.Component {
    }
 }
 
-ReactDOM.render(<MyApp/>, document.getElementById("content"));
+ReactDOM.render(<MyApp/>, document.getElementById("application"));
 
 
 

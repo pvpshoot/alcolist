@@ -96,7 +96,8 @@ var app =
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MyApp).call(this, props));
 	
 	        _this.state = {
-	            logged: false
+	            logged: false,
+	            dataBase: new Firebase('https://alcolist.firebaseio.com/')
 	        };
 	        //bindMethods(this, ['']);
 	        return _this;
@@ -112,10 +113,10 @@ var app =
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                this.state.logged ? _react2.default.createElement(_login2.default, null) : _react2.default.createElement(
+	                !this.state.logged ? _react2.default.createElement(_login2.default, null) : _react2.default.createElement(
 	                    'div',
 	                    null,
-	                    _react2.default.createElement(_ListDrink2.default, null),
+	                    _react2.default.createElement(_ListDrink2.default, { dataBase: this.dataBase }),
 	                    _react2.default.createElement(_AddAlcoButton.AddAlcoButton, null)
 	                )
 	            );
@@ -125,7 +126,7 @@ var app =
 	    return MyApp;
 	}(_react2.default.Component);
 	
-	_reactDom2.default.render(_react2.default.createElement(MyApp, null), document.getElementById("content"));
+	_reactDom2.default.render(_react2.default.createElement(MyApp, null), document.getElementById("application"));
 
 /***/ },
 /* 1 */
@@ -51723,7 +51724,8 @@ var app =
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ListDrink).call(this));
 	
 	        _this.state = {
-	            listDrinks: null
+	            listDrinks: null,
+	            dataBase: _this.props.dataBase + '/alcolist'
 	        };
 	        return _this;
 	    }
@@ -51734,7 +51736,7 @@ var app =
 	            var _this2 = this;
 	
 	            return new Promise(function (resolve, resject) {
-	                firebaseRef.once("value", function (data) {
+	                _this2.state.dataBase.once("value", function (data) {
 	                    var drinks = data.val();
 	                    resolve(drinks);
 	                    _this2.setState({ listDrinks: drinks });
@@ -64781,8 +64783,6 @@ var app =
 	
 	var _service = __webpack_require__(375);
 	
-	var _service2 = _interopRequireDefault(_service);
-	
 	var _raisedButton = __webpack_require__(333);
 	
 	var _raisedButton2 = _interopRequireDefault(_raisedButton);
@@ -64810,13 +64810,19 @@ var app =
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LoginForm).call(this, props));
 	
 	        _this.state = {};
-	        //bindMethods(this, ['']);
+	        (0, _service.bindMethods)(_this, ['twitterLogin']);
 	        return _this;
 	    }
 	
 	    _createClass(LoginForm, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {}
+	    }, {
+	        key: 'twitterLogin',
+	        value: function twitterLogin(e) {
+	            e.preventDefault();
+	            alert('GO');
+	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
@@ -64826,12 +64832,19 @@ var app =
 	                _react2.default.createElement(
 	                    'h1',
 	                    { className: 'loginForm__header' },
-	                    'Авторизация'
+	                    'Alco list ',
+	                    _react2.default.createElement('br', null),
+	                    _react2.default.createElement(
+	                        'small',
+	                        null,
+	                        'поделись с друзьями своими гастрономическими вкусами'
+	                    )
 	                ),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'loginForm__item' },
-	                    _react2.default.createElement(_raisedButton2.default, { label: 'Twitter',
+	                    _react2.default.createElement(_raisedButton2.default, { onClick: this.twitterLogin,
+	                        label: 'Twitter',
 	                        backgroundColor: '#0084B4',
 	                        style: {
 	                            width: '200px',

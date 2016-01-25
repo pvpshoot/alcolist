@@ -23,13 +23,14 @@ class ListDrink extends React.Component {
     constructor(){
         super();
         this.state = {
-            listDrinks: null
+            listDrinks: null,
+            dataBase: `${this.props.dataBase}/alcolist`,
         }
     }
 
     loadDataFromFirebase() {
         return new Promise((resolve, resject) => {
-            firebaseRef.once("value", (data)=> {
+            this.state.dataBase.once("value", (data)=> {
                 var drinks = data.val();
                 resolve(drinks)
                 this.setState({listDrinks: drinks})
