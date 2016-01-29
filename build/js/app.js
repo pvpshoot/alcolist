@@ -73,11 +73,11 @@ var app =
 	
 	var _AddAlcoButton = __webpack_require__(376);
 	
-	var _login = __webpack_require__(378);
+	var _login = __webpack_require__(382);
 	
 	var _login2 = _interopRequireDefault(_login);
 	
-	var _navigation = __webpack_require__(383);
+	var _navigation = __webpack_require__(387);
 	
 	var _navigation2 = _interopRequireDefault(_navigation);
 	
@@ -88,6 +88,7 @@ var app =
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	//import {AllAlcoList} from 'AllAlcoList.jsx';
 	
 	var MyApp = function (_React$Component) {
 	    _inherits(MyApp, _React$Component);
@@ -64684,13 +64685,27 @@ var app =
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _dialog = __webpack_require__(303);
+	
+	var _dialog2 = _interopRequireDefault(_dialog);
+	
 	var _add = __webpack_require__(377);
 	
 	var _add2 = _interopRequireDefault(_add);
 	
+	var _flatButton = __webpack_require__(304);
+	
+	var _flatButton2 = _interopRequireDefault(_flatButton);
+	
 	var _colors = __webpack_require__(180);
 	
 	var _colors2 = _interopRequireDefault(_colors);
+	
+	var _service = __webpack_require__(375);
+	
+	var _reactTapEventPlugin = __webpack_require__(378);
+	
+	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -64700,6 +64715,10 @@ var app =
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// Стандартный метод onTouchTap не работает без подключения библиотеки react-tap-event-plugin
+	
+	(0, _reactTapEventPlugin2.default)();
+	
 	var AddAlcoButton = exports.AddAlcoButton = function (_React$Component) {
 	    _inherits(AddAlcoButton, _React$Component);
 	
@@ -64708,22 +64727,54 @@ var app =
 	
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AddAlcoButton).call(this, props));
 	
-	        _this.state = {};
+	        _this.state = {
+	            open: false
+	        };
 	        //bindMethods(this, ['']);
 	        return _this;
 	    }
 	
 	    _createClass(AddAlcoButton, [{
+	        key: 'handleOpen',
+	        value: function handleOpen() {
+	            this.setState({ open: true });
+	        }
+	    }, {
+	        key: 'handleClose',
+	        value: function handleClose() {
+	            this.setState({ open: false });
+	        }
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {}
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var actions = [_react2.default.createElement(_flatButton2.default, {
+	                label: 'Cancel',
+	                secondary: true,
+	                onTouchTap: this.handleClose.bind(this) }), _react2.default.createElement(_flatButton2.default, {
+	                label: 'Submit',
+	                primary: true })];
+	
 	            //TODO УБРАТЬ ИНЛАЙН СТИЛИ
 	            return _react2.default.createElement(
-	                _floatingActionButton2.default,
-	                { backgroundColor: _colors2.default.teal500, className: 'AddAlcoButton', style: { position: 'fixed', bottom: '20px', right: '60px' } },
-	                _react2.default.createElement(_add2.default, null)
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    _floatingActionButton2.default,
+	                    { onTouchTap: this.handleOpen.bind(this), backgroundColor: _colors2.default.teal500, className: 'AddAlcoButton', style: { position: 'fixed', bottom: '20px', right: '60px' } },
+	                    _react2.default.createElement(_add2.default, null)
+	                ),
+	                _react2.default.createElement(
+	                    _dialog2.default,
+	                    {
+	                        title: 'Dialog With Actions',
+	                        actions: actions,
+	                        modal: true,
+	                        open: this.state.open },
+	                    'Only actions can close this dialog.'
+	                )
 	            );
 	        }
 	    }]);
@@ -64776,6 +64827,280 @@ var app =
 /* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = function injectTapEventPlugin () {
+	  __webpack_require__(31).injection.injectEventPluginsByName({
+	    "TapEventPlugin":       __webpack_require__(379)
+	  });
+	};
+
+
+/***/ },
+/* 379 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule TapEventPlugin
+	 * @typechecks static-only
+	 */
+	
+	"use strict";
+	
+	var EventConstants = __webpack_require__(30);
+	var EventPluginUtils = __webpack_require__(33);
+	var EventPropagators = __webpack_require__(73);
+	var SyntheticUIEvent = __webpack_require__(87);
+	var TouchEventUtils = __webpack_require__(380);
+	var ViewportMetrics = __webpack_require__(38);
+	
+	var keyOf = __webpack_require__(381);
+	var topLevelTypes = EventConstants.topLevelTypes;
+	
+	var isStartish = EventPluginUtils.isStartish;
+	var isEndish = EventPluginUtils.isEndish;
+	
+	var isTouch = function(topLevelType) {
+	  var touchTypes = [
+	    topLevelTypes.topTouchCancel,
+	    topLevelTypes.topTouchEnd,
+	    topLevelTypes.topTouchStart,
+	    topLevelTypes.topTouchMove
+	  ];
+	  return touchTypes.indexOf(topLevelType) >= 0;
+	}
+	
+	/**
+	 * Number of pixels that are tolerated in between a `touchStart` and `touchEnd`
+	 * in order to still be considered a 'tap' event.
+	 */
+	var tapMoveThreshold = 10;
+	var ignoreMouseThreshold = 750;
+	var startCoords = {x: null, y: null};
+	var lastTouchEvent = null;
+	
+	var Axis = {
+	  x: {page: 'pageX', client: 'clientX', envScroll: 'currentPageScrollLeft'},
+	  y: {page: 'pageY', client: 'clientY', envScroll: 'currentPageScrollTop'}
+	};
+	
+	function getAxisCoordOfEvent(axis, nativeEvent) {
+	  var singleTouch = TouchEventUtils.extractSingleTouch(nativeEvent);
+	  if (singleTouch) {
+	    return singleTouch[axis.page];
+	  }
+	  return axis.page in nativeEvent ?
+	    nativeEvent[axis.page] :
+	    nativeEvent[axis.client] + ViewportMetrics[axis.envScroll];
+	}
+	
+	function getDistance(coords, nativeEvent) {
+	  var pageX = getAxisCoordOfEvent(Axis.x, nativeEvent);
+	  var pageY = getAxisCoordOfEvent(Axis.y, nativeEvent);
+	  return Math.pow(
+	    Math.pow(pageX - coords.x, 2) + Math.pow(pageY - coords.y, 2),
+	    0.5
+	  );
+	}
+	
+	var touchEvents = [
+	  topLevelTypes.topTouchStart,
+	  topLevelTypes.topTouchCancel,
+	  topLevelTypes.topTouchEnd,
+	  topLevelTypes.topTouchMove,
+	];
+	
+	var dependencies = [
+	  topLevelTypes.topMouseDown,
+	  topLevelTypes.topMouseMove,
+	  topLevelTypes.topMouseUp,
+	].concat(touchEvents);
+	
+	var eventTypes = {
+	  touchTap: {
+	    phasedRegistrationNames: {
+	      bubbled: keyOf({onTouchTap: null}),
+	      captured: keyOf({onTouchTapCapture: null})
+	    },
+	    dependencies: dependencies
+	  }
+	};
+	
+	var now = (function() {
+	  if (Date.now) {
+	    return Date.now;
+	  } else {
+	    // IE8 support: http://stackoverflow.com/questions/9430357/please-explain-why-and-how-new-date-works-as-workaround-for-date-now-in
+	    return function () {
+	      return +new Date;
+	    }
+	  }
+	})();
+	
+	var TapEventPlugin = {
+	
+	  tapMoveThreshold: tapMoveThreshold,
+	
+	  ignoreMouseThreshold: ignoreMouseThreshold,
+	
+	  eventTypes: eventTypes,
+	
+	  /**
+	   * @param {string} topLevelType Record from `EventConstants`.
+	   * @param {DOMEventTarget} topLevelTarget The listening component root node.
+	   * @param {string} topLevelTargetID ID of `topLevelTarget`.
+	   * @param {object} nativeEvent Native browser event.
+	   * @return {*} An accumulation of synthetic events.
+	   * @see {EventPluginHub.extractEvents}
+	   */
+	  extractEvents: function(
+	      topLevelType,
+	      topLevelTarget,
+	      topLevelTargetID,
+	      nativeEvent,
+	      nativeEventTarget) {
+	
+	    if (isTouch(topLevelType)) {
+	      lastTouchEvent = now();
+	    } else {
+	      if (lastTouchEvent && (now() - lastTouchEvent) < ignoreMouseThreshold) {
+	        return null;
+	      }
+	    }
+	
+	    if (!isStartish(topLevelType) && !isEndish(topLevelType)) {
+	      return null;
+	    }
+	    var event = null;
+	    var distance = getDistance(startCoords, nativeEvent);
+	    if (isEndish(topLevelType) && distance < tapMoveThreshold) {
+	      event = SyntheticUIEvent.getPooled(
+	        eventTypes.touchTap,
+	        topLevelTargetID,
+	        nativeEvent,
+	        nativeEventTarget
+	      );
+	    }
+	    if (isStartish(topLevelType)) {
+	      startCoords.x = getAxisCoordOfEvent(Axis.x, nativeEvent);
+	      startCoords.y = getAxisCoordOfEvent(Axis.y, nativeEvent);
+	    } else if (isEndish(topLevelType)) {
+	      startCoords.x = 0;
+	      startCoords.y = 0;
+	    }
+	    EventPropagators.accumulateTwoPhaseDispatches(event);
+	    return event;
+	  }
+	
+	};
+	
+	module.exports = TapEventPlugin;
+
+
+/***/ },
+/* 380 */
+/***/ function(module, exports) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule TouchEventUtils
+	 */
+	
+	var TouchEventUtils = {
+	  /**
+	   * Utility function for common case of extracting out the primary touch from a
+	   * touch event.
+	   * - `touchEnd` events usually do not have the `touches` property.
+	   *   http://stackoverflow.com/questions/3666929/
+	   *   mobile-sarai-touchend-event-not-firing-when-last-touch-is-removed
+	   *
+	   * @param {Event} nativeEvent Native event that may or may not be a touch.
+	   * @return {TouchesObject?} an object with pageX and pageY or null.
+	   */
+	  extractSingleTouch: function(nativeEvent) {
+	    var touches = nativeEvent.touches;
+	    var changedTouches = nativeEvent.changedTouches;
+	    var hasTouches = touches && touches.length > 0;
+	    var hasChangedTouches = changedTouches && changedTouches.length > 0;
+	
+	    return !hasTouches && hasChangedTouches ? changedTouches[0] :
+	           hasTouches ? touches[0] :
+	           nativeEvent;
+	  }
+	};
+	
+	module.exports = TouchEventUtils;
+
+
+/***/ },
+/* 381 */
+/***/ function(module, exports) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule keyOf
+	 */
+	
+	/**
+	 * Allows extraction of a minified key. Let's the build system minify keys
+	 * without losing the ability to dynamically use key strings as values
+	 * themselves. Pass in an object with a single key/val pair and it will return
+	 * you the string key of that single record. Suppose you want to grab the
+	 * value for a key 'className' inside of an object. Key/val minification may
+	 * have aliased that key to be 'xa12'. keyOf({className: null}) will return
+	 * 'xa12' in that case. Resolve keys you want to use once at startup time, then
+	 * reuse those resolutions.
+	 */
+	"use strict";
+	
+	var keyOf = function (oneKeyObj) {
+	  var key;
+	  for (key in oneKeyObj) {
+	    if (!oneKeyObj.hasOwnProperty(key)) {
+	      continue;
+	    }
+	    return key;
+	  }
+	  return null;
+	};
+	
+	module.exports = keyOf;
+
+/***/ },
+/* 382 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -64806,7 +65131,7 @@ var app =
 	
 	var _textField2 = _interopRequireDefault(_textField);
 	
-	__webpack_require__(379);
+	__webpack_require__(383);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -64925,16 +65250,16 @@ var app =
 	exports.default = LoginForm;
 
 /***/ },
-/* 379 */
+/* 383 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 380 */,
-/* 381 */,
-/* 382 */,
-/* 383 */
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64957,7 +65282,7 @@ var app =
 	
 	var _iconButton2 = _interopRequireDefault(_iconButton);
 	
-	var _close = __webpack_require__(384);
+	var _close = __webpack_require__(388);
 	
 	var _close2 = _interopRequireDefault(_close);
 	
@@ -65021,7 +65346,7 @@ var app =
 	exports.default = Navigation;
 
 /***/ },
-/* 384 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
