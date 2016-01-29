@@ -1,0 +1,22 @@
+body {
+  font-family: Roboto, sans-serif; }
+
+.loginForm {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; }
+  .loginForm__header {
+    text-align: center;
+    display: block;
+    width: 100%; }
+  .loginForm__item {
+    display: block;
+    width: 100%;
+    text-align: center; }
+  .loginForm__button {
+    width: 200px; }
+
+/*# sourceMappingURL=bundle.css.map*/

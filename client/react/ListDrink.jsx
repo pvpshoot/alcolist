@@ -23,7 +23,7 @@ class ListDrink extends React.Component {
     constructor(){
         super();
         this.state = {
-            listDrinks: null
+            listDrinks: null,
         }
     }
 
@@ -31,7 +31,7 @@ class ListDrink extends React.Component {
         return new Promise((resolve, resject) => {
             firebaseRef.once("value", (data)=> {
                 var drinks = data.val();
-                resolve(drinks)
+                resolve(drinks);
                 this.setState({listDrinks: drinks})
             })
         })

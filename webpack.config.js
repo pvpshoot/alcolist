@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 var WebpackErrorNotificationPlugin = require('webpack-error-notification');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     watch: true,
@@ -11,7 +12,8 @@ module.exports = {
     },
     devtool: 'source-map',
     entry: {
-        app: './client/react/app.jsx'
+        app: './client/react/app.jsx',
+        //test: './client/react/login.jsx'
 
     },
     output: {
@@ -26,12 +28,13 @@ module.exports = {
             // browse to http://localhost:3000/ during development,
             // ./public directory is being served
             host: 'localhost',
-            index: "app.htm",
+            index: "app.html",
             port: 8080,
             server: { baseDir: ['build']},
             open: false,
             ghostMode: false,
-        })
+        }),
+        new ExtractTextPlugin('./build/css/bundle.css')
     ],
     module: {
         loaders: [
@@ -49,8 +52,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                include: path.join(__dirname),
-                loader: 'style!css!sass'
+                loader: ExtractTextPlugin.extract('style-loader','css-loader!sass')
             }
         ]
     },
@@ -60,4 +62,4 @@ module.exports = {
             'client/modules'
         ]
     }
-}
+};

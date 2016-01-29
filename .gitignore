@@ -3,4 +3,5 @@ node_modules/
 build/js/
 build
 *.map
+*.hot-update.js
 .DS_Store
