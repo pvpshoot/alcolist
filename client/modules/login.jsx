@@ -19,7 +19,7 @@ export default class LoginForm extends React.Component {
         this.state = {
             ref: new Firebase(this.props.bd)
         };
-        bindMethods(this, ['twitterLogin','checkLogged']);
+        bindMethods(this, ['twitterLogin','checkLogged','facebookLogin']);
     }
     
 
@@ -28,18 +28,31 @@ export default class LoginForm extends React.Component {
     }
     checkLogged(){
         let authData = this.state.ref.getAuth();
-        return authData? this.props.loginAction(authData.twitter.username) : null;
+        console.log(authData);
+        return authData? this.props.loginAction(authData.provider=='twitter'? authData.twitter : authData.facebook) : null;
+        
     }
     twitterLogin(e){
         e.preventDefault();
-        console.log(this);
         this.state.ref.authWithOAuthPopup("twitter", (error, authData)=> {
             if (error) {
                 alert('Error');
                 console.log("Login Failed!", error);
             } else {
-                console.log("Authenticated successfully with payload:", authData);
-                this.props.loginAction(authData.twitter.username);
+                this.props.loginAction(authData.twitter);
+                console.log(authData.twitter);
+            }
+            return
+        });
+    }
+    facebookLogin(e){
+        e.preventDefault();
+        this.state.ref.authWithOAuthPopup("facebook", (error, authData)=> {
+            if (error) {
+                alert('Error');
+                console.log("Login Failed!", error);
+            } else {
+                this.props.loginAction(authData.facebook);
             }
             return
         });
@@ -62,7 +75,7 @@ export default class LoginForm extends React.Component {
                                   primary={true}/>
                 </div>
                 <div className="loginForm__item">
-                    <RaisedButton label="Facebook"
+                    <RaisedButton label="Facebook" onClick={this.facebookLogin}
                                   backgroundColor="#4e69a2"
                                   style={{
                         width: '200px'
