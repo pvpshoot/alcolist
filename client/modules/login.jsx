@@ -29,7 +29,8 @@ export default class LoginForm extends React.Component {
     checkLogged(){
         let authData = this.state.ref.getAuth();
         console.log(authData);
-        return authData? this.props.loginAction(authData.provider=='twitter'? authData.twitter.username : authData.facebook.displayName) : null;
+        return authData? this.props.loginAction(authData.provider=='twitter'? authData.twitter : authData.facebook) : null;
+        
     }
     twitterLogin(e){
         e.preventDefault();
@@ -38,7 +39,8 @@ export default class LoginForm extends React.Component {
                 alert('Error');
                 console.log("Login Failed!", error);
             } else {
-                this.props.loginAction(authData.twitter.username);
+                this.props.loginAction(authData.twitter);
+                console.log(authData.twitter);
             }
             return
         });
@@ -50,7 +52,7 @@ export default class LoginForm extends React.Component {
                 alert('Error');
                 console.log("Login Failed!", error);
             } else {
-                this.props.loginAction(authData.facebook.displayName);
+                this.props.loginAction(authData.facebook);
             }
             return
         });

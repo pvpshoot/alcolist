@@ -77,6 +77,10 @@ var app =
 	
 	var _login2 = _interopRequireDefault(_login);
 	
+	var _navigation = __webpack_require__(383);
+	
+	var _navigation2 = _interopRequireDefault(_navigation);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -96,16 +100,24 @@ var app =
 	        _this.state = {
 	            logged: false,
 	            loginName: '',
-	            dataBase: 'https://alcolist.firebaseio.com/'
+	            avatar: '',
+	            dataBase: 'https://alcolist.firebaseio.com/',
+	            ref: new Firebase('https://alcolist.firebaseio.com/')
 	        };
-	        (0, _service.bindMethods)(_this, ['setLoggin']);
+	        (0, _service.bindMethods)(_this, ['setLoggin', 'deleteLogin']);
 	        return _this;
 	    }
 	
 	    _createClass(MyApp, [{
 	        key: 'setLoggin',
 	        value: function setLoggin(data) {
-	            return !!data ? this.setState({ loginName: data, logged: true }) : null;
+	            return !!data ? this.setState({ loginName: data.displayName || data.username, avatar: data.profileImageURL, logged: true }) : null;
+	        }
+	    }, {
+	        key: 'deleteLogin',
+	        value: function deleteLogin() {
+	            this.state.ref.unauth();
+	            return this.setState({ loginName: '', logged: false });
 	        }
 	    }, {
 	        key: 'componentDidMount',
@@ -113,13 +125,13 @@ var app =
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	
 	            return _react2.default.createElement(
 	                'div',
 	                null,
 	                !this.state.logged ? _react2.default.createElement(_login2.default, { bd: this.state.dataBase, loginAction: this.setLoggin }) : _react2.default.createElement(
 	                    'div',
 	                    null,
+	                    _react2.default.createElement(_navigation2.default, { logout: this.deleteLogin, avatar: this.state.avatar }),
 	                    _react2.default.createElement(_ListDrink2.default, { dataBase: this.dataBase }),
 	                    _react2.default.createElement(_AddAlcoButton.AddAlcoButton, null)
 	                )
@@ -64829,7 +64841,7 @@ var app =
 	        value: function checkLogged() {
 	            var authData = this.state.ref.getAuth();
 	            console.log(authData);
-	            return authData ? this.props.loginAction(authData.provider == 'twitter' ? authData.twitter.username : authData.facebook.displayName) : null;
+	            return authData ? this.props.loginAction(authData.provider == 'twitter' ? authData.twitter : authData.facebook) : null;
 	        }
 	    }, {
 	        key: 'twitterLogin',
@@ -64842,7 +64854,8 @@ var app =
 	                    alert('Error');
 	                    console.log("Login Failed!", error);
 	                } else {
-	                    _this2.props.loginAction(authData.twitter.username);
+	                    _this2.props.loginAction(authData.twitter);
+	                    console.log(authData.twitter);
 	                }
 	                return;
 	            });
@@ -64858,7 +64871,7 @@ var app =
 	                    alert('Error');
 	                    console.log("Login Failed!", error);
 	                } else {
-	                    _this3.props.loginAction(authData.facebook.displayName);
+	                    _this3.props.loginAction(authData.facebook);
 	                }
 	                return;
 	            });
@@ -64916,6 +64929,137 @@ var app =
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 380 */,
+/* 381 */,
+/* 382 */,
+/* 383 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _appBar = __webpack_require__(160);
+	
+	var _appBar2 = _interopRequireDefault(_appBar);
+	
+	var _iconButton = __webpack_require__(181);
+	
+	var _iconButton2 = _interopRequireDefault(_iconButton);
+	
+	var _close = __webpack_require__(384);
+	
+	var _close2 = _interopRequireDefault(_close);
+	
+	var _avatar = __webpack_require__(265);
+	
+	var _avatar2 = _interopRequireDefault(_avatar);
+	
+	var _list = __webpack_require__(248);
+	
+	var _list2 = _interopRequireDefault(_list);
+	
+	var _listItem = __webpack_require__(258);
+	
+	var _listItem2 = _interopRequireDefault(_listItem);
+	
+	var _flatButton = __webpack_require__(304);
+	
+	var _flatButton2 = _interopRequireDefault(_flatButton);
+	
+	var _service = __webpack_require__(375);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Navigation = function (_React$Component) {
+	    _inherits(Navigation, _React$Component);
+	
+	    function Navigation(props) {
+	        _classCallCheck(this, Navigation);
+	
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Navigation).call(this, props));
+	
+	        _this.state = {};
+	        //bindMethods(this, ['logout']);
+	        return _this;
+	    }
+	
+	    _createClass(Navigation, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_appBar2.default, {
+	                zDepth: 1,
+	                title: 'Моё бухлишко',
+	                iconElementLeft: _react2.default.createElement(_avatar2.default, { src: this.props.avatar, style: { marginTop: 4 } }),
+	                iconElementRight: _react2.default.createElement(_flatButton2.default, { label: 'Logout', onClick: this.props.logout })
+	            });
+	        }
+	    }]);
+	
+	    return Navigation;
+	}(_react2.default.Component);
+	
+	exports.default = Navigation;
+
+/***/ },
+/* 384 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactAddonsPureRenderMixin = __webpack_require__(187);
+	
+	var _reactAddonsPureRenderMixin2 = _interopRequireDefault(_reactAddonsPureRenderMixin);
+	
+	var _svgIcon = __webpack_require__(232);
+	
+	var _svgIcon2 = _interopRequireDefault(_svgIcon);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var NavigationClose = _react2.default.createClass({
+	  displayName: 'NavigationClose',
+	
+	  mixins: [_reactAddonsPureRenderMixin2.default],
+	
+	  render: function render() {
+	    return _react2.default.createElement(
+	      _svgIcon2.default,
+	      this.props,
+	      _react2.default.createElement('path', { d: 'M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z' })
+	    );
+	  }
+	});
+	
+	exports.default = NavigationClose;
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);
