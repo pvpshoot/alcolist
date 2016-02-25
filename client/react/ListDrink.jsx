@@ -8,7 +8,7 @@ import ActionInfo from 'material-ui/lib/svg-icons/action/info';
 import SocialPeople from 'material-ui/lib/svg-icons/social/people';
 import Colors from 'material-ui/lib/styles/colors';
 
-let firebaseRef = new Firebase('https://alcolist.firebaseio.com/alcolist');
+
 
 
 var {
@@ -20,16 +20,19 @@ var {
     } = mui;
 
 class ListDrink extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             listDrinks: null,
         }
     }
 
     loadDataFromFirebase() {
+        console.log(this.props.id)
+        let firebaseRef = new Firebase('https://alcolist.firebaseio.com/users/' + this.props.id);
         return new Promise((resolve, resject) => {
             firebaseRef.once("value", (data)=> {
+                console.log(data)
                 var drinks = data.val();
                 resolve(drinks);
                 this.setState({listDrinks: drinks})
@@ -41,6 +44,7 @@ class ListDrink extends React.Component {
         this.loadDataFromFirebase();
     }
     render() {
+        console.log(this.state.listDrinks);
         if(this.state.listDrinks !== null){
             var groupped = _.groupBy(this.state.listDrinks, (n)=> {return [n.type].sort()})
               var nodes = _(groupped).keys().map((k, i) => {

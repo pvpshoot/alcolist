@@ -15,6 +15,7 @@ class MyApp extends React.Component {
        super(props);
        this.state = {
            logged: false,
+           id: null,
            loginName: '',
            avatar:'',
            dataBase: 'https://alcolist.firebaseio.com/',
@@ -23,7 +24,8 @@ class MyApp extends React.Component {
        bindMethods(this, ['setLoggin','deleteLogin']);
    }
     setLoggin(data){
-        return !!data? this.setState({loginName: data.displayName || data.username, avatar: data.profileImageURL, logged: true}) : null;
+        console.log(data)
+        return !!data? this.setState({loginName: data.displayName || data.username, avatar: data.profileImageURL, id: data.id, logged: true}) : null;
     }
     deleteLogin(){
         this.state.ref.unauth();
@@ -34,8 +36,8 @@ class MyApp extends React.Component {
        return <div>
            {!this.state.logged ? <LoginForm  bd={this.state.dataBase}  loginAction={this.setLoggin}/>: <div>
                <Navigation logout={this.deleteLogin} avatar={this.state.avatar}/>
-               <ListDrink dataBase={this.dataBase}/>
-               <AddAlcoButton/>
+               <ListDrink dataBase={this.dataBase} id={this.state.id}/>
+               <AddAlcoButton id={this.state.id}/>
            </div>}
        </div>;
    }
