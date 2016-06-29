@@ -4,4 +4,5 @@ build/js/
 *.map
 .DS_Store
 build/
-
+/android
+/ios
