@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 
-class alcolist extends Component {
+export default class alcolist extends Component {
   render() {
     return (
       <View style={styles.container}>
